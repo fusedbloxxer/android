@@ -1,0 +1,13 @@
+tag 
+<Student>
+	<Nume> Miu</Nume>
+	<Prenume>Magda</Prenume>
+</Student>
+
+sau
+
+<Student/> Tag empty.
+
+Proprietati:
+<Student facultate="Unibuc">
+</Student>
