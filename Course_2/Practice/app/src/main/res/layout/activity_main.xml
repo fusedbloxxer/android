@@ -4,100 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
     <!-- Acest context stie in ce activitate pune codul -->
 
     <TextView
+        android:id="@+id/text_view_hello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:textStyle="italic"
-        android:background="@color/colorAccent"
-        android:padding="@dimen/general_margin"
         android:layout_margin="@dimen/general_padding"
-        android:text="@string/this_is_my_first_textview"
-        android:id="@+id/text_view_hello"
+        android:background="@color/colorAccent"
         android:ellipsize="middle"
         android:gravity="center"
-        />
+        android:padding="@dimen/general_margin"
+        android:text="@string/this_is_my_first_textview"
+        android:textSize="23sp"
+        android:textStyle="italic" />
+
     <ImageView
         android:id="@+id/image_view_android"
         android:layout_width="match_parent"
         android:layout_height="120dip"
-        android:src="@drawable/poza_android"
         android:scaleType="fitCenter"
-        />
+        android:src="@drawable/poza_android" />
+
     <Button
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimaryDark"
-        android:layout_margin="@dimen/general_margin"
-        android:padding="@dimen/general_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/i_am_a_button"
         android:layout_gravity="center"
+        android:layout_margin="@dimen/general_margin"
+        android:background="@color/colorPrimaryDark"
         android:onClick="btnHelloOnClick"
-        />
+        android:padding="@dimen/general_padding"
+        android:text="@string/i_am_a_button"
+        android:textColor="@android:color/white" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dip"
-        android:background="@color/colorAccent"
         android:layout_margin="@dimen/general_margin"
-    />
+        android:background="@color/colorAccent" />
+
     <EditText
         android:id="@+id/edit_text_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_your_email_address"
-        android:inputType="textEmailAddress"
         android:drawableLeft="@android:drawable/alert_dark_frame"
-        />
+        android:hint="@string/add_your_email_address"
+        android:inputType="textEmailAddress" />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="true"
-        android:text="@string/i_accept_to_learn_android"/>
+        android:text="@string/i_accept_to_learn_android" />
+
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <RadioButton
-            android:text="yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="yes" />
+
         <RadioButton
-            android:text="no"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="no" />
     </RadioGroup>
+
     <RatingBar
         android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
         android:rating="3.5"
-        android:stepSize="0.5"
-        />
+        android:stepSize="0.5" />
+
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notifications"
-        android:checked="true"/>
+        android:checked="true"
+        android:text="@string/notifications" />
+
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="100"
-        android:progress="70"
-        />
+        android:progress="70" />
+
     <SearchView
-        android:queryHint="@string/this_is_a_search_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:queryHint="@string/this_is_a_search_view" />
+
     <ProgressBar
-        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/general_margin"/>
+        android:layout_margin="@dimen/general_margin"
+        android:visibility="visible" />
 
 </LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_margin">15dp</dimen>
+    <dimen name="label_text_size">15sp</dimen>
+    <dimen name="edit_text_bottom_margin">20dp</dimen>
+    <dimen name="edit_text_margin_top">10dp</dimen>
+    <dimen name="button_top_padding">15dp</dimen>
+    <dimen name="button_right_margin">20dp</dimen>
+    <dimen name="rating_width">240dp</dimen>
+</resources>

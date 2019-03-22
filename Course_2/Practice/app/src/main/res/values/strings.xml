@@ -9,4 +9,5 @@
     <string name="hello_from_java">Hello from Java code :)</string>
     <string name="error_email_missing">Please add an email address.</string>
     <string name="error_email_incorrect">You didn\'t enter an email address.</string>
+    <string name="how_are_you_today">How are you today? Im feeling very excited today !!</string>
 </resources>
