@@ -10,4 +10,12 @@
     <string name="error_email_missing">Please add an email address.</string>
     <string name="error_email_incorrect">You didn\'t enter an email address.</string>
     <string name="how_are_you_today">How are you today? Im feeling very excited today !!</string>
+    <string name="hello_textview1">Hello TextView1 :)</string>
+    <string name="hello_textview2">Hello TextView2 :)</string>
+    <string name="hello_textview3">Hello textView3 :)</string>
+    <string name="hello_textview4">Hello TextView4 :)</string>
+    <string name="login">LOGIN</string>
+    <string name="email">Email</string>
+    <string name="i_accept_terms_and_conditions">I accept terms and conditions</string>
+    <string name="submit">Submit</string>
 </resources>
