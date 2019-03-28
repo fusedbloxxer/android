@@ -4,4 +4,13 @@
     <dimen name="text_size">20sp</dimen>
     <dimen name="button_text_size">15sp</dimen>
     <dimen name="button_margin">10dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="edit_text_margin_top">15dp</dimen>
+    <dimen name="box_size">55dp</dimen>
+    <dimen name="view_two_margin_left">80dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="dim_128">128dp</dimen>
+    <dimen name="dim_64">64dp</dimen>
+    <dimen name="dim_32">32dp</dimen>
 </resources>

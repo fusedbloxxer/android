@@ -1,7 +1,9 @@
-package com.code_challenges.androiddeveloperfundamentals;
+package com.code_challenges.androiddeveloperfundamentals.week_2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.code_challenges.androiddeveloperfundamentals.R;
 
 public class MainActivity extends AppCompatActivity {
 
