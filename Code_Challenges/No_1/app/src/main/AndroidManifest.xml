@@ -11,16 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".week_3.SpinnerActivity" />
-        <activity android:name=".week_3.FrameLayoutActivity" />
-        <activity android:name=".week_3.ScrollViewActivity" />
-        <activity android:name=".week_3.LoginActivity" >
+        <activity android:name=".week_4.HolidayActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".week_4.RecycledViewStudents.RecyclerViewActivity" />
+        <activity android:name=".week_4.ViewGroupsExample" />
+        <activity android:name=".week_3.SpinnerActivity" />
+        <activity android:name=".week_3.FrameLayoutActivity" />
+        <activity android:name=".week_3.ScrollViewActivity" />
+        <activity android:name=".week_3.LoginActivity" />
         <activity android:name=".week_2.MainActivity" />
     </application>
 

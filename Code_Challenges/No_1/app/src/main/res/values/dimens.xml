@@ -13,4 +13,5 @@
     <dimen name="dim_128">128dp</dimen>
     <dimen name="dim_64">64dp</dimen>
     <dimen name="dim_32">32dp</dimen>
+    <dimen name="space_48">48dp</dimen>
 </resources>

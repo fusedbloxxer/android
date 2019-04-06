@@ -7,4 +7,5 @@
     <dimen name="button_top_padding">15dp</dimen>
     <dimen name="button_right_margin">20dp</dimen>
     <dimen name="rating_width">240dp</dimen>
+    <dimen name="space_16">16dp</dimen>
 </resources>
