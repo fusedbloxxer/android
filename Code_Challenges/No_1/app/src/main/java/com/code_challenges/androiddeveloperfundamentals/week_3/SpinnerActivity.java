@@ -35,7 +35,8 @@ public class SpinnerActivity extends AppCompatActivity {
         mSpinnerSweets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SpinnerActivity.this, "Selected: " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(SpinnerActivity.this, "Selected: " +
+                        parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
             }
 
             @Override
