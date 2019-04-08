@@ -1,5 +1,7 @@
 package com.code_challenges.traveljournal.PlanningList;
 
+import android.widget.ImageView;
+
 public class TravelPlan {
     private String mTravelDate;
     private String mLocationName;

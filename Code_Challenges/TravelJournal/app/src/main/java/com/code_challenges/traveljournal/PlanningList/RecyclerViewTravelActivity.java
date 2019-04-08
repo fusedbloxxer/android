@@ -27,7 +27,6 @@ public class RecyclerViewTravelActivity extends AppCompatActivity {
         setLayoutManager();
         getDataSource();
         setAdapter();
-        mTravelPlanAdapter.getmTravelPlanList().remove(0);
     }
 
     private void setAdapter() {
