@@ -25,8 +25,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         /**
-         * Porneste de la un parent si tot adauga parent
-         * Face inflate la itemul din layout, il asociaza viewgroupului
+         * Porneste de la un parent si tot adauga in acesta
+         * Face inflate la itemul din layout, il asociaza viewgroupului (parintelui)
          *    attachToRoot - true: cand stim noi ca trebuie sa se faca inflate
          *                   false: nu stim cand isi termina treaba asa ca il lasam noi sa decida
          * Layout de adaugat, viewgroup, false - el decide cum face inflate

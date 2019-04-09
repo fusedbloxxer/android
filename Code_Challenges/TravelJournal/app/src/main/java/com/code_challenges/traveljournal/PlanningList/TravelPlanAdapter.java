@@ -27,15 +27,6 @@ public class TravelPlanAdapter extends RecyclerView.Adapter<TravelPlanViewHolder
 
         final TravelPlanViewHolder travelPlanViewHolder = new TravelPlanViewHolder(itemView);
 
-        travelPlanViewHolder.getmImageViewLocation().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), travelPlanViewHolder.getmTextViewTravelLocation()
-                            .getText(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        );
-
         return travelPlanViewHolder;
     }
 

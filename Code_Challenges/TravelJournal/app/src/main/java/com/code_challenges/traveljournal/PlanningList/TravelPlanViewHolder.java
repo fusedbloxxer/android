@@ -35,6 +35,13 @@ public class TravelPlanViewHolder extends RecyclerView.ViewHolder {
         mTextViewTravelDate = itemView.findViewById(R.id.text_view_date);
         mTextViewTravelLocation = itemView.findViewById(R.id.text_view_location_name);
 
+        mImageViewLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Toast.makeText(v.getContext(), getmTextViewTravelLocation()
+                            .getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

@@ -7,7 +7,6 @@
     tools:context=".week_4.HolidayActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -42,13 +41,14 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="136dp"
-            android:layout_height="205dp"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/todo"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintDimensionRatio="w,2:3"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
