@@ -11,14 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".week_5.SecondActivityLifecycle" />
-        <activity android:name=".week_5.FirstActivityLifecycle" >
+        <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".week_5.SecondCodeChallenge.TextPassageSecondActivity" />
+        <activity android:name=".week_5.SecondCodeChallenge.TextPassageFirstActivity">
+
+        </activity>
+        <activity android:name=".week_5.FirstCodeChallenge.SecondActivityLifecycle" />
+        <activity android:name=".week_5.FirstCodeChallenge.FirstActivityLifecycle" />
         <activity android:name=".week_4.HolidayActivity" />
         <activity android:name=".week_4.RecycledViewStudents.RecyclerViewActivity" />
         <activity android:name=".week_4.ViewGroupsExample" />

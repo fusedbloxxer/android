@@ -1,4 +1,4 @@
-package com.code_challenges.androiddeveloperfundamentals.week_5;
+package com.code_challenges.androiddeveloperfundamentals.week_5.FirstCodeChallenge;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

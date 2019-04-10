@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".week_5.FirstActivityLifecycle">
+    tools:context=".week_5.FirstCodeChallenge.FirstActivityLifecycle">
 
     <Button
         android:onClick="startSecondActivityOnClick"
