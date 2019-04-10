@@ -25,4 +25,6 @@
     <string name="from_now_on_our_troubles_will_be_out_of_sight">From now on, our troubles will be out of sight</string>
     <string name="let_it_snow">LET IT SNOW</string>
     <string name="todo">TODO</string>
+    <string name="go_to_the_second_activity">Go to the second Activity.</string>
+    <string name="go_to_the_first_activity">Go to the first activity.</string>
 </resources>
