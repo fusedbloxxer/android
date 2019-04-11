@@ -12,4 +12,8 @@
     <string name="rating">Rating</string>
     <string name="save">SAVE</string>
     <string name="end_date">End Date</string>
+    <string name="add_a_new_trip">Add a new trip</string>
+    <string name="memorable_journey_title">Memorable journey title</string>
+    <string name="your_target_location">Your target location</string>
+    <string name="error_empty_string">The field is empty.</string>
 </resources>

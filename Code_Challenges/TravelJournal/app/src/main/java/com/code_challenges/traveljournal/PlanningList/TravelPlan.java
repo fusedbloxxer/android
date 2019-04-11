@@ -1,39 +1,99 @@
 package com.code_challenges.traveljournal.PlanningList;
 
-import android.widget.ImageView;
-
 public class TravelPlan {
-    private String mTravelDate;
+    private String mTravelDateStart;
+    private String mTravelDateEnd;
     private String mLocationName;
     private int mImageSource;
+    private String mTripType;
+    private float mRating;
+    private int mPrice;
 
-    public String getmTravelDate() {
-        return mTravelDate;
+    public String getmTravelDateEnd() {
+        return mTravelDateEnd;
     }
 
-    public void setmTravelDate(String mTravelDate) {
-        this.mTravelDate = mTravelDate;
+    public float getmRating() {
+        return mRating;
+    }
+
+    public int getmPrice() {
+        return mPrice;
+    }
+
+    public String getmTripType() {
+        return mTripType;
+    }
+
+    public String getmTravelDateStart() {
+        return mTravelDateStart;
     }
 
     public String getmLocationName() {
         return mLocationName;
     }
 
-    public void setmLocationName(String mLocationName) {
-        this.mLocationName = mLocationName;
-    }
-
     public int getmImageSource() {
         return mImageSource;
     }
 
-    public void setmImageSource(int mImageSource) {
-        this.mImageSource = mImageSource;
+    private TravelPlan(Builder builder) {
+        this.mImageSource = builder.mImageSource;
+        this.mLocationName = builder.mLocationName;
+        this.mPrice = builder.mPrice;
+        this.mRating = builder.mRating;
+        this.mTravelDateEnd = builder.mTravelDateEnd;
+        this.mTravelDateStart = builder.mTravelDateStart;
+        this.mTripType = builder.mTripType;
     }
 
-    TravelPlan(String mTravelDate, String mLocationName, int mImageSource) {
-        this.mImageSource = mImageSource;
-        this.mLocationName = mLocationName;
-        this.mTravelDate = mTravelDate;
+    public static class Builder {
+        private String mTravelDateStart;
+        private String mTravelDateEnd;
+        private String mLocationName;
+        private int mImageSource;
+        private String mTripType;
+        private float mRating;
+        private int mPrice;
+
+        public Builder setmTravelDateStart(String mTravelDateStart) {
+            this.mTravelDateStart = mTravelDateStart;
+            return this;
+        }
+
+        public Builder setmTravelDateEnd(String mTravelDateEnd) {
+            this.mTravelDateEnd = mTravelDateEnd;
+            return this;
+        }
+
+        public Builder setmLocationName(String mLocationName) {
+            this.mLocationName = mLocationName;
+            return this;
+        }
+
+        public Builder setmImageSource(int mImageSource) {
+            this.mImageSource = mImageSource;
+            return this;
+        }
+
+        public Builder setmRating(float mRating) {
+            this.mRating = mRating;
+            return this;
+        }
+
+
+        public Builder setmPrice(int mPrice) {
+            this.mPrice = mPrice;
+            return this;
+        }
+
+        public Builder setmTripType(String mTripType) {
+            this.mTripType = mTripType;
+            return this;
+        }
+
+        public TravelPlan build() {
+            return new TravelPlan(this);
+        }
     }
 }

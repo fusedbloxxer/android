@@ -15,14 +15,14 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".week_5.activities.SecondActivity"></activity>
         <activity android:name=".week_5.activities.FirstActivity" >
-
-        </activity>
-        <activity android:name=".week_5.AnimationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".week_5.AnimationActivity">
+
         </activity>
         <activity android:name=".week_4.ConstraintLayoutActivity" />
         <activity android:name=".week_4.RecyclerViewActivity" />

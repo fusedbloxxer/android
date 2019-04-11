@@ -1,11 +1,11 @@
 package com.code_challenges.traveljournal.PlanningList;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.code_challenges.traveljournal.R;
 
@@ -21,26 +21,38 @@ public class TravelPlanAdapter extends RecyclerView.Adapter<TravelPlanViewHolder
     @NonNull
     @Override
     public TravelPlanViewHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, int i) {
-
         View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.travel_plan_view, viewGroup, false);
 
-        final TravelPlanViewHolder travelPlanViewHolder = new TravelPlanViewHolder(itemView);
-
-        return travelPlanViewHolder;
+        return new TravelPlanViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TravelPlanViewHolder travelPlanViewHolder, int i) {
-        final TravelPlan currentElement = mTravelPlanList.get(i);
+        TravelPlan currentElement = mTravelPlanList.get(i);
 
         if (currentElement != null) {
-            travelPlanViewHolder.getmImageViewLocation().setImageResource(currentElement.getmImageSource());
+
+            travelPlanViewHolder
+                    .getmRatingBarTravel()
+                    .setRating(currentElement.getmRating());
+
+            travelPlanViewHolder
+                    .getmImageViewLocation()
+                    .setImageResource(currentElement.getmImageSource());
+
             if (currentElement.getmLocationName() != null) {
-                travelPlanViewHolder.getmTextViewTravelLocation().setText(currentElement.getmLocationName());
+                travelPlanViewHolder
+                        .getmTextViewTravelLocation()
+                        .setText(currentElement.getmLocationName());
             }
-            if (currentElement.getmTravelDate() != null) {
-                travelPlanViewHolder.getmTextViewTravelDate().setText(currentElement.getmTravelDate());
+            if (currentElement.getmTravelDateStart() != null
+                    && currentElement.getmTravelDateEnd() != null) {
+                travelPlanViewHolder
+                        .getmTextViewTravelDate()
+                        .setText(currentElement.getmTravelDateStart() + " "
+                                + currentElement.getmTravelDateEnd());
             }
         }
     }
