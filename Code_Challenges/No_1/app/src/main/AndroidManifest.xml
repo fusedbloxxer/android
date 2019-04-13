@@ -11,17 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity">
+        <activity android:name=".week_5.ThirdCodeChallenge.ChatSecondActivity" />
+        <activity android:name=".week_5.ThirdCodeChallenge.ChatFirstActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".week_5.SecondCodeChallenge.TextPassageSecondActivity" />
-        <activity android:name=".week_5.SecondCodeChallenge.TextPassageFirstActivity">
-
+        <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity">
         </activity>
+        <activity android:name=".week_5.SecondCodeChallenge.TextPassageSecondActivity" />
+        <activity android:name=".week_5.SecondCodeChallenge.TextPassageFirstActivity" />
         <activity android:name=".week_5.FirstCodeChallenge.SecondActivityLifecycle" />
         <activity android:name=".week_5.FirstCodeChallenge.FirstActivityLifecycle" />
         <activity android:name=".week_4.HolidayActivity" />

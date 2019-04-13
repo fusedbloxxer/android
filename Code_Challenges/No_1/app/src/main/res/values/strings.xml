@@ -41,4 +41,8 @@
     <string name="share_text">Share text</string>
     <string name="insert_a_phone_number">Insert a phone number</string>
     <string name="call">Call</string>
+    <string name="reply_received">Reply received</string>
+    <string name="message">Message</string>
+    <string name="message_received">Message received</string>
+    <string name="send">SEND</string>
 </resources>
