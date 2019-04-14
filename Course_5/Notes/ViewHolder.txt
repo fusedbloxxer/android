@@ -1,0 +1,10 @@
+Adapter Pattern:
+
+
+ViewHolder-ul este cel care face posibila legatura intre codul programatorului
+si view-ul pe care vrem sa-l reutilizam. Acesta ne permite accesul la atributele
+unui view precum si modul in care putem interactiona cu acestea.
+De exemplu, putem crea action listeners prin care dam interactiune butoanelor.
+Un alt punct important al acestui pattern este faptul ca usureaza legatura cu 
+view-urile evitand apelarea in mod repetat a findViewById care ar incetini
+foarte mult performanta aplicatiei mai ales cand dam scroll prin lista.
