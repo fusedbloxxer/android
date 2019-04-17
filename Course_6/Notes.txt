@@ -1,0 +1,22 @@
+ANDROID:
+
+onSaveInstanceState()
+ - se face un fel de cache
+ - cand se roteste sa se completeze cu datele dinainte de rotire
+ - salvam starea ecranului
+
+onRestoreInstanceState()
+ - preluam starea ecranului
+ - este bazat pe bundle
+ - fara serializare
+
+-- Exercitii -- 
+
+La debug sa dau click dreapta, evaluate
+MAI VEZI DEBUGGER
+
+FRAGMENT:
+ Sa preluam info
+ - Bundle
+ - Setter
+ - Listener
