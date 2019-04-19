@@ -7,14 +7,14 @@
     android:padding="@dimen/general_padding"
     tools:context=".week_6.FragmentInActivity">
 
-  <!--  <fragment
-        android:id="@+id/hello_fragment"
-        android:name="com.example.fundevelopment.week_6.HelloFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--  <fragment
+          android:id="@+id/hello_fragment"
+          android:name="com.example.fundevelopment.week_6.HelloFragment"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
 
-    </fragment>
--->
+      </fragment>
+  -->
 
     <FrameLayout
         android:id="@+id/container"

@@ -15,4 +15,6 @@
     <dimen name="dim_32">32dp</dimen>
     <dimen name="space_48">48dp</dimen>
     <dimen name="space_8">8dp</dimen>
+    <dimen name="item_image_width">144dp</dimen>
+    <dimen name="item_image_height">95dp</dimen>
 </resources>

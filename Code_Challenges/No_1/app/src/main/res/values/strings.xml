@@ -45,4 +45,6 @@
     <string name="message">Message</string>
     <string name="message_received">Message received</string>
     <string name="send">SEND</string>
+    <string name="search_on_google">Search on google</string>
+    <string name="presentation_activity_title">Android Developer Fundamentals</string>
 </resources>
