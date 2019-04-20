@@ -14,12 +14,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.TransitionManager;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.code_challenges.androiddeveloperfundamentals.Bindings.Fragments.CourseDetailsFragment;
 import com.code_challenges.androiddeveloperfundamentals.Bindings.RecyclerViewPackage.Course;
@@ -174,6 +171,10 @@ public class PresentationActivity extends AppCompatActivity {
                 bundle.putInt(COURSE_DETAILS_IMAGE, course.getmImageResourceID());
 
                 mFragmentCourseDetails.setArguments(bundle);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame_layout_course_details, mFragmentCourseDetails)
+                        .commit();
             }
         };
     }

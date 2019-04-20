@@ -11,7 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Bindings.PresentationActivity">
+        <activity
+            android:name=".week_6.NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".week_6.AlbumActivity">
+        </activity>
+        <activity android:name=".Bindings.PresentationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".week_5.ThirdCodeChallenge.ChatSecondActivity" />
-        <activity android:name=".week_5.ThirdCodeChallenge.ChatFirstActivity"></activity>
-        <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity"></activity>
+        <activity android:name=".week_5.ThirdCodeChallenge.ChatFirstActivity" />
+        <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity" />
         <activity android:name=".week_5.SecondCodeChallenge.TextPassageSecondActivity" />
         <activity android:name=".week_5.SecondCodeChallenge.TextPassageFirstActivity" />
         <activity android:name=".week_5.FirstCodeChallenge.SecondActivityLifecycle" />
@@ -32,9 +39,7 @@
         <activity android:name=".week_3.FrameLayoutActivity" />
         <activity android:name=".week_3.ScrollViewActivity" />
         <activity android:name=".week_3.LoginActivity" />
-        <activity android:name=".week_2.MainActivity">
-
-        </activity>
+        <activity android:name=".week_2.MainActivity" />
     </application>
 
 </manifest>

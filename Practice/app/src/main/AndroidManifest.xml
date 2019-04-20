@@ -13,22 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".week_6.NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".week_6.FragmentInActivity">
+        <activity android:name=".week_7.MaterialDesignActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".week_6.LengthActivity">
+
+        </activity>
+        <activity android:name=".week_6.SumActivity">
+        </activity>
+        <activity
+            android:name=".week_6.NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".week_6.FragmentInActivity" />
         <activity android:name=".week_5.DebugActivity" />
         <activity android:name=".week_5.ForResultActivity2" />
-        <activity android:name=".week_5.ForResultActivity1"></activity>
+        <activity android:name=".week_5.ForResultActivity1" />
         <activity android:name=".week_5.activities.SecondActivity" />
         <activity android:name=".week_5.activities.FirstActivity" />
         <activity android:name=".week_5.AnimationActivity" />

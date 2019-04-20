@@ -41,7 +41,7 @@ public class CourseDetailsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.i("HELP", "RESUME");
+
         Bundle bundle = getArguments();
         if (bundle != null) {
             if (bundle.getString("title") != null) {
