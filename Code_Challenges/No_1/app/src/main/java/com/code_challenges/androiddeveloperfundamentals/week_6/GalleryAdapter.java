@@ -36,7 +36,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryItemViewHolder> 
         if (galleryItem != null) {
             if (galleryItem.getmImageResourceID() != null) {
                 galleryItemViewHolder
-                        .getmImageViewGalleryItem()
                         .setImageResource(galleryItem.getmImageResourceID());
                 galleryItemViewHolder
                         .getmTextViewGalleryItemNumber()

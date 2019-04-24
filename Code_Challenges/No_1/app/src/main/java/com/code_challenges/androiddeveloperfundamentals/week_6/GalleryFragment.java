@@ -38,13 +38,6 @@ public class GalleryFragment extends Fragment {
         addData();
         setLayoutManager(view);
         setAdapter();
-
-        mRecyclerViewGallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int index = mRecyclerViewGallery.getChildAdapterPosition(v);
-            }
-        });
     }
 
     private void setAdapter() {
@@ -66,5 +59,9 @@ public class GalleryFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewGallery.setLayoutManager(layoutManager);
+    }
+
+    public RecyclerView getmRecyclerViewGallery() {
+        return mRecyclerViewGallery;
     }
 }
