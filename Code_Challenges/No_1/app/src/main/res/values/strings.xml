@@ -61,4 +61,9 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dota_2">DOTA 2</string>
+    <string name="defense_of_the_ancients_2">Defense of the Ancients 2</string>
 </resources>

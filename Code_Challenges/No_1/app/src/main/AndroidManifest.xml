@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.code_challenges.androiddeveloperfundamentals">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,20 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".week_6.NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".week_6.AlbumActivity">
+        <activity android:name=".week_7.challenge_2.BatteryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Bindings.PresentationActivity" >
+        <activity android:name=".week_7.challenge_1.GamingActivity">
+
         </activity>
+        <activity android:name=".week_6.CodeChallenge7.MyAmazingLifeActivity"></activity>
+        <activity android:name=".week_6.Tabs.TabActivity" />
+        <activity
+            android:name=".week_6.NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".week_6.AlbumActivity" />
+        <activity android:name=".Bindings.PresentationActivity" />
         <activity android:name=".week_5.ThirdCodeChallenge.ChatSecondActivity" />
         <activity android:name=".week_5.ThirdCodeChallenge.ChatFirstActivity" />
         <activity android:name=".week_5.FourthCodeChallenge.MultiFunctionActivity" />

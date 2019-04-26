@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/space_16"
+    android:theme="@style/AppTheme.Gaming"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardCornerRadius="@dimen/space_16"
+    tools:layout_editor_absoluteX="70dp"
+    tools:layout_editor_absoluteY="6dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view_roaster"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:elevation="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dota_roaster_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_view_logo"
+            android:layout_width="@dimen/space_64"
+            android:layout_height="@dimen/space_64"
+            android:layout_marginRight="@dimen/space_16"
+            android:elevation="2dp"
+            android:onClick="openWebsiteOnClick"
+            android:src="@drawable/dota_image"
+            app:layout_constraintBottom_toBottomOf="@id/image_view_roaster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_roaster" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeMaxTextSize="32sp"
+            android:autoSizeMinTextSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:background="@color/white"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:text="@string/defense_of_the_ancients_2"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="@id/image_view_logo"
+            app:layout_constraintEnd_toStartOf="@id/image_view_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/image_view_logo" />
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="@dimen/space_16"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/space_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_logo"
+            android:layout_height="0dp">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </WebView>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
