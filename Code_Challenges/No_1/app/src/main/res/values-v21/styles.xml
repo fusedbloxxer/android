@@ -5,4 +5,37 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="DateStyle">
+        <item name="android:background">
+            @color/orange
+        </item>
+        <item name="android:colorAccent">
+            @color/orange
+        </item>
+        <item name="android:selectableItemBackgroundBorderless" />
+        <item name="android:colorControlActivated">
+            @color/darker_green
+        </item>
+        <item name="android:colorControlHighlight">
+            @color/red
+        </item>
+    </style>
+
+    <style name="ExtraChallenge.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#ad1357</item>
+        <item name="colorPrimaryDark">#78002e</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
+        <item name="colorAccent">#e35083</item>
+    </style>
+
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="android:background">#e35083</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

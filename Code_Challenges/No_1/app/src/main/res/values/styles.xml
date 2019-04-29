@@ -27,4 +27,20 @@
         <item name="android:elevation" tools:targetApi="lollipop">8dp</item>
     </style>
 
+    <style name="Sport" parent="@style/AppTheme.NoActionBar">
+        <item name="colorPrimary">#6de0b2</item>
+    </style>
+
+    <style name="SportStyle" parent="Sport">
+        <item name="colorPrimaryDark">#35ad82</item>
+        <item name="android:windowBackground">
+            @color/somethingLight
+        </item>
+    </style>
+
+    <style name="SportsTheme" parent="SportStyle">
+        <item name="android:background">
+            @color/somethingLight
+        </item>
+    </style>
 </resources>

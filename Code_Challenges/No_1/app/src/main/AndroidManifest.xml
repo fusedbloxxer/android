@@ -13,18 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".week_7.challenge_2.BatteryActivity">
+        <activity android:name=".week_7.challenge_extras.CodeExamples" android:theme="@style/ExtraChallenge.Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".week_7.challenge_1.GamingActivity">
+        <activity android:name=".week_7.challenge_4.DateTimePicker">
 
         </activity>
+        <activity
+            android:name=".week_7.challenge_3.SportDetailsActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".week_7.challenge_3.MainActivity"
+            android:theme="@style/SportsTheme"></activity>
+        <activity
+            android:name=".week_7.challenge_3.SportsNavigationDrawerActivity"
+            android:label="@string/title_activity_sports"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".week_7.challenge_2.BatteryActivity"></activity>
+        <activity android:name=".week_7.challenge_1.GamingActivity"></activity>
         <activity android:name=".week_6.CodeChallenge7.MyAmazingLifeActivity"></activity>
-        <activity android:name=".week_6.Tabs.TabActivity" />
+        <activity android:name=".week_6.Tabs.TabActivity"></activity>
         <activity
             android:name=".week_6.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
