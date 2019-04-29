@@ -1,7 +1,6 @@
 package com.code_challenges.androiddeveloperfundamentals.week_7.challenge_extras;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 
 import com.code_challenges.androiddeveloperfundamentals.R;
 
-public class CodeExamples extends AppCompatActivity {
+public class CodeExamplesActivity extends AppCompatActivity {
     private LinearLayout mLinearLayoutParent;
     private ImageView mImageViewAnimation;
     private boolean mShapeAndStrokeAnimation;
@@ -77,21 +76,21 @@ public class CodeExamples extends AppCompatActivity {
         builder.setPositiveButton("Open", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(CodeExamples.this, getString(R.string.app_name), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CodeExamplesActivity.this, getString(R.string.app_name), Toast.LENGTH_SHORT).show();
             }
         });
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(CodeExamples.this, "Cancelling", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CodeExamplesActivity.this, "Cancelling", Toast.LENGTH_SHORT).show();
             }
         });
 
         builder.setNeutralButton("Remind me", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(CodeExamples.this, "Postpone", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CodeExamplesActivity.this, "Postpone", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -119,20 +118,31 @@ public class CodeExamples extends AppCompatActivity {
                             mShapeAndStrokeAnimation = false;
                         }
                     });
-            
+
             // CUM ARATA UNDO
             snackbar.setActionTextColor(getResources().getColor(R.color.orange));
             View snackbarView = snackbar.getView();
 
             // CULOAREA DE FUNDAL
-            snackbarView.setBackgroundColor(ContextCompat.getColor(CodeExamples.this, R.color.colorPrimary));
+            snackbarView.setBackgroundColor(ContextCompat.getColor(CodeExamplesActivity.this, R.color.colorPrimary));
 
             // CUM ARATA HELP
             TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-            textView.setTextColor(ContextCompat.getColor(CodeExamples.this, R.color.white));
+            textView.setTextColor(ContextCompat.getColor(CodeExamplesActivity.this, R.color.white));
 
             // NU UITA DE SHOW
             snackbar.show();
         }
+    }
+
+    public void openCollapsingActivityOnClick(View view) {
+        Intent intent = new Intent(this, CollapsingToolbarActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCameraActivityOnClick(View view) {
+        Intent intent = new Intent(this, CameraActivity.class);
+
+        startActivity(intent);
     }
 }

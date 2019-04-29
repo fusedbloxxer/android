@@ -7,14 +7,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/animation_list_1"
     android:orientation="vertical"
-    tools:context=".week_7.challenge_extras.CodeExamples">
+    tools:context=".week_7.challenge_extras.CodeExamplesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/space_32"
-        tools:context=".week_7.challenge_extras.CodeExamples">
+        tools:context=".week_7.challenge_extras.CodeExamplesActivity">
 
         <Button
             android:id="@+id/button_date_picker"
@@ -38,7 +38,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="@dimen/space_8"
             android:onClick="openAlertDialogOnClick"
-            android:text="AlertDialog" />
+            android:text="@string/alertdialog" />
 
         <Button
             android:id="@+id/button_shape"
@@ -46,7 +46,23 @@
             android:layout_height="40dp"
             android:layout_marginBottom="@dimen/space_8"
             android:onClick="showAnimationOnClick"
-            android:text="Start Animation" />
+            android:text="@string/start_animation" />
+
+        <Button
+            android:id="@+id/button_collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/space_8"
+            android:onClick="openCollapsingActivityOnClick"
+            android:text="@string/collapsing_toolbar" />
+
+        <Button
+            android:id="@+id/button_camera"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/space_8"
+            android:onClick="openCameraActivityOnClick"
+            android:text="@string/camera_utility" />
 
 
     </LinearLayout>

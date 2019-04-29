@@ -25,4 +25,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="general_padding">16dp</dimen>
     <dimen name="space_64">64dp</dimen>
+    <dimen name="tall_toolbar_height">64dp</dimen>
 </resources>
