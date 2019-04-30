@@ -4,12 +4,15 @@
     package="com.code_challenges.androiddeveloperfundamentals">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="true" />
+
     <uses-feature
         android:name="android.hardware.camera2"
         android:required="true" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".week_7.challenge_extras.CameraActivity"></activity>
+        <activity android:name=".week_7.challenge_extras.BottomNaviationActivity"></activity>
+        <activity android:name=".week_7.challenge_extras.MakePhotoActivity" />
+        <activity android:name=".week_7.challenge_extras.CameraActivity" />
         <activity
             android:name=".week_7.challenge_extras.CollapsingToolbarActivity"
             android:theme="@style/AppTheme" />

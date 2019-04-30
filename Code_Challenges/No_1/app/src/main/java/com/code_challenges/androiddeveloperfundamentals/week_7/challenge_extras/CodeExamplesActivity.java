@@ -145,4 +145,16 @@ public class CodeExamplesActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void openMakePhotoActivityOnClick(View view) {
+        Intent intent = new Intent(this, MakePhotoActivity.class);
+
+        startActivity(intent);
+    }
+
+    public void openBottomNavOnClick(View view) {
+        Intent intent = new Intent(this, BottomNaviationActivity.class);
+
+        startActivity(intent);
+    }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/assistant_tab"
+        android:icon="@drawable/ic_assistant_black_24dp"
+        android:title="@string/assistant" >
+    </item>
+    <item
+        android:id="@+id/photos_tab"
+        android:icon="@drawable/ic_photo_black_24dp"
+        android:title="@string/photos" />
+    <item
+        android:id="@+id/albums_tab"
+        android:icon="@drawable/ic_photo_album_black_24dp"
+        android:title="@string/albums" />
+</menu>

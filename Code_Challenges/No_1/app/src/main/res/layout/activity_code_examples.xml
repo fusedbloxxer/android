@@ -64,6 +64,21 @@
             android:onClick="openCameraActivityOnClick"
             android:text="@string/camera_utility" />
 
+        <Button
+            android:id="@+id/button_camera_2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/space_8"
+            android:onClick="openMakePhotoActivityOnClick"
+            android:text="@string/camera_api" />
+
+        <Button
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/space_8"
+            android:onClick="openBottomNavOnClick"
+            android:text="@string/bottom_navigation_view" />
 
     </LinearLayout>
 

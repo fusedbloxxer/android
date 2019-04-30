@@ -3,7 +3,6 @@ package com.code_challenges.androiddeveloperfundamentals.week_7.challenge_extras
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.sql.Time;
 import java.util.Calendar;
 
 public class CustomTimePickerDialog extends DialogFragment {
