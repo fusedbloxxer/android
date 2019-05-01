@@ -1,15 +1,16 @@
 package com.androidapp.fusedbloxxer.moto4rent;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final int INTENT_REQUEST_TERMS_AND_CONDITIONS = 1;
+    public static final int INTENT_REQUEST_REGISTER_USER = 1;
+    public static final int INTENT_REQUEST_FORGOT_PASS = 1;
+    public static final String INTENT_REQUEST_EMAIL_ADDRESS = "email_address";
+    public static final String RESTORE_EMAIL = "restore_email";
+    public static final String RESTORE_PASS = "restore_password";
     private int mBackPresses;
 
     private EditText mEditTextEmail;
@@ -29,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         initView();
     }
 
@@ -40,75 +45,20 @@ public class LoginActivity extends AppCompatActivity {
         mButtonLogin = findViewById(R.id.button_login);
     }
 
-    private boolean isPasswordValid() {
-        if (mEditTextPassword != null) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(RESTORE_EMAIL, mEditTextEmail.getText().toString());
+        outState.putString(RESTORE_PASS, mEditTextPassword.getText().toString());
     }
 
-    private boolean isPasswordAccepted() {
-        if (isPasswordValid()) {
-            String password = mEditTextPassword.getText().toString();
-            if (password.length() > 4) {
-                Pattern upperCase = Pattern.compile("[A-Z]");
-                Pattern lowerCase = Pattern.compile("[a-z]");
-                Pattern digit = Pattern.compile("[0-9]");
-                Matcher matcher;
-
-                if (lowerCase.matcher(password).find()) {
-                    if (upperCase.matcher(password).find()) {
-                        if (digit.matcher(password).find()) {
-                            return true;
-                        } else {
-                            mEditTextPassword.setError("The password should contain 0-9.");
-                        }
-                    } else {
-                        mEditTextPassword.setError("The password should contain A-Z.");
-                    }
-                } else {
-                    mEditTextPassword.setError("The password should contain a-z.");
-                }
-
-            } else if (password.isEmpty()) {
-                mEditTextPassword.setError(getResources().getString(R.string.error_empty_field));
-            } else {
-                mEditTextPassword.setError(getResources().getString(R.string.error_password_too_short));
-            }
-        }
-        return false;
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mEditTextEmail.setText(savedInstanceState.getString(RESTORE_EMAIL));
+        mEditTextPassword.setText(savedInstanceState.getString(RESTORE_PASS));
     }
 
-    private boolean isEmailValid() {
-        if (mEditTextEmail != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isEmailAccepted() {
-        if (isEmailValid()) {
-            String email = mEditTextEmail.getText().toString();
-            if (!email.isEmpty()) {
-                Pattern pattern = Pattern.compile("^[0-9a-zA-Z.]+@[a-zA-Z]+\\.[a-zA-Z]+$");
-                Matcher matcher = pattern.matcher(email);
-                if (matcher.find()) {
-                    return true;
-                } else {
-                    mEditTextEmail.setError("Invalid email address.");
-                    return false;
-                }
-            } else {
-                mEditTextEmail.setError(getResources().getString(R.string.error_empty_field));
-                return false;
-            }
-        } else {
-            Toast.makeText(LoginActivity.this, "EditTextEmail was not initialised.", Toast.LENGTH_LONG);
-            return false;
-        }
-    }
 
     @Override
     public void onBackPressed() {
@@ -142,49 +92,56 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(openWebsite);
     }
 
-    public void openTermsAndConditionsOnClick(View view) {
-        Intent openTerms = new Intent(this, TermsAndConditionsActivity.class);
-        startActivityForResult(openTerms, INTENT_REQUEST_TERMS_AND_CONDITIONS);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case INTENT_REQUEST_TERMS_AND_CONDITIONS: {
-
+        switch (requestCode) {
+            case INTENT_REQUEST_REGISTER_USER: {
+                if (resultCode == RESULT_OK) {
+                    Toast
+                            .makeText(this,
+                                    getResources().getString(R.string.message_verify_email),
+                                    Toast.LENGTH_LONG)
+                            .show();
                 }
-                break;
             }
+            break;
         }
-
-    }
-
-    private boolean dataBaseCheck() {
-        return true;
     }
 
     public void loginOnClick(View view) {
-        if (dataBaseCheck() &&
-                isEmailAccepted() &&
-                isPasswordAccepted()) {
-            Toast.makeText(this, "OK !", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(LoginActivity.this, getResources().getText(R.string.error_invalid_user), Toast.LENGTH_LONG)
-                    .show();
+        if (LoginChecker
+                .getInstance()
+                .validLogin(this, mEditTextEmail, mEditTextPassword)) {
+            openMainActivity();
         }
     }
 
     public void loginWithGoogleOnClick(View view) {
-        if (dataBaseCheck()) {
-            // TODO: get google user from database
+        if (LoginChecker
+                .getInstance()
+                .dataBaseCheck()) {
+            openMainActivity();
         } else {
             // TODO: register google user to database
         }
     }
 
     private void openMainActivity() {
-        Intent openMainMenu = new Intent(LoginActivity.this, )
+        Intent openMainMenu = new Intent(LoginActivity.this, MainMenuActivity.class);
+        // TODO: Poate sa adaug mai multe informatii despre client ? Sa iau punctele sale, etc.
+        openMainMenu.putExtra(INTENT_REQUEST_EMAIL_ADDRESS, mEditTextEmail.getText().toString());
+        startActivity(openMainMenu);
+        this.finish();
+    }
+
+    public void registerOnClick(View view) {
+        Intent startRegisterProcess = new Intent(this, RegisterUserActivity.class);
+        startActivityForResult(startRegisterProcess, INTENT_REQUEST_REGISTER_USER);
+    }
+
+    public void recoverPasswordOnClick(View view) {
+        Intent recoverPass = new Intent(this, ForgotPasswordActivity.class);
+        startActivityForResult(recoverPass, INTENT_REQUEST_FORGOT_PASS);
     }
 }

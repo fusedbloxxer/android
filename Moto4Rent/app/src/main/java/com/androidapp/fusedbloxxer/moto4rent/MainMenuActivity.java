@@ -13,9 +13,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private boolean mCloseCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,12 @@ public class MainMenuActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        initView();
+    }
+
+    private void initView() {
+        mCloseCheck = false;
     }
 
     @Override
@@ -46,7 +54,14 @@ public class MainMenuActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (mCloseCheck == false) {
+                Toast.makeText(MainMenuActivity.this,
+                        getResources().getText(R.string.message_exit), Toast.LENGTH_SHORT)
+                        .show();
+                mCloseCheck = true;
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
