@@ -44,4 +44,10 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
         setResult(RESULT_CANCELED);
         this.finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }

@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     public static final int INTENT_REQUEST_REGISTER_USER = 1;
-    public static final int INTENT_REQUEST_FORGOT_PASS = 1;
+    public static final int INTENT_REQUEST_FORGOT_PASS = 2;
     public static final String INTENT_REQUEST_EMAIL_ADDRESS = "email_address";
     public static final String RESTORE_EMAIL = "restore_email";
     public static final String RESTORE_PASS = "restore_password";
@@ -106,6 +106,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
             break;
+            case INTENT_REQUEST_FORGOT_PASS: {
+                if (resultCode == RESULT_OK) {
+                    Toast
+                            .makeText(this,
+                                    getResources().getString(R.string.message_verify_email),
+                                    Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            break;
         }
     }
 
@@ -113,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         if (LoginChecker
                 .getInstance()
                 .validLogin(this, mEditTextEmail, mEditTextPassword)) {
-            openMainActivity();
+            openMainActivity(mEditTextEmail);
         }
     }
 
@@ -121,16 +131,18 @@ public class LoginActivity extends AppCompatActivity {
         if (LoginChecker
                 .getInstance()
                 .dataBaseCheck()) {
-            openMainActivity();
+            openMainActivity(mEditTextEmail);
         } else {
             // TODO: register google user to database
         }
     }
 
-    private void openMainActivity() {
+    private void openMainActivity(EditText mEditTextEmail) {
         Intent openMainMenu = new Intent(LoginActivity.this, MainMenuActivity.class);
         // TODO: Poate sa adaug mai multe informatii despre client ? Sa iau punctele sale, etc.
-        openMainMenu.putExtra(INTENT_REQUEST_EMAIL_ADDRESS, mEditTextEmail.getText().toString());
+        if (mEditTextEmail != null) {
+            openMainMenu.putExtra(INTENT_REQUEST_EMAIL_ADDRESS, mEditTextEmail.getText().toString());
+        }
         startActivity(openMainMenu);
         this.finish();
     }
@@ -143,5 +155,9 @@ public class LoginActivity extends AppCompatActivity {
     public void recoverPasswordOnClick(View view) {
         Intent recoverPass = new Intent(this, ForgotPasswordActivity.class);
         startActivityForResult(recoverPass, INTENT_REQUEST_FORGOT_PASS);
+    }
+
+    public void skipOnClick(View view) {
+        openMainActivity(null);
     }
 }

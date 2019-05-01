@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_bot_trip"
+        android:icon="@drawable/ic_map_uncolored"
+        android:title="@string/trip" />
+    <item
+        android:id="@+id/nav_bot_showcase"
+        android:icon="@drawable/ic_motorbike"
+        android:title="@string/showcase" />
+
+    <item
+        android:id="@+id/nav_bot_rent"
+        android:icon="@drawable/ic_rent_uncolored"
+        android:title="@string/rent" />
+
+</menu>

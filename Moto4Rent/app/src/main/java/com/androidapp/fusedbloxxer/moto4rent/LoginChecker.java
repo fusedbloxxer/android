@@ -62,11 +62,15 @@ public class LoginChecker {
             } else {
                 mEditTextPassword.setError(context.getResources().getString(R.string.error_password_too_short));
             }
+        } else {
+            Toast
+                    .makeText(context, "EditTextPassword was not initialised.", Toast.LENGTH_LONG)
+                    .show();
         }
         return false;
     }
 
-    private boolean isEmailAccepted(Context context, EditText mEditTextEmail) {
+    boolean isEmailAccepted(Context context, EditText mEditTextEmail) {
         if (isEmailValid(mEditTextEmail)) {
             String email = mEditTextEmail.getText().toString();
             if (!email.isEmpty()) {
@@ -76,16 +80,16 @@ public class LoginChecker {
                     return true;
                 } else {
                     mEditTextEmail.setError("Invalid email address.");
-                    return false;
                 }
             } else {
                 mEditTextEmail.setError(context.getResources().getString(R.string.error_empty_field));
-                return false;
             }
         } else {
-            Toast.makeText(context, "EditTextEmail was not initialised.", Toast.LENGTH_LONG);
-            return false;
+            Toast
+                    .makeText(context, "EditTextEmail was not initialised.", Toast.LENGTH_LONG)
+                    .show();
         }
+        return false;
     }
 
     boolean dataBaseCheck() {
