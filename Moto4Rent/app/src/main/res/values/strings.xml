@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Moto4Rent</string>
+    <string name="moto4rent">Moto4Rent</string>
+    <string name="username">Username</string>
+    <string name="email_address">Email address</string>
+    <string name="agree_to_terms_and_conditions">Agree to Terms and Conditions</string>
+    <string name="moto_website">http://www.moto4rent.ro</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="terms_and_conditions_title">Terms and Conditions</string>
+    <string name="terms_and_conditions_long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod odio iaculis nulla viverra posuere. Curabitur nec nisl feugiat massa malesuada pretium et in dui. Aliquam erat volutpat. Aenean condimentum sodales ipsum, non varius elit porta vitae. In nec ipsum diam. Ut posuere commodo erat eu ullamcorper. Etiam pretium at mi non porttitor. Duis ornare elit nibh, vel tincidunt lacus tempus eget. Morbi dolor ex, sollicitudin non metus vel, ornare iaculis nisi. Sed pulvinar lorem vitae odio placerat, in pharetra erat porttitor. Maecenas ultrices consequat cursus. Duis vel maximus lorem. Vivamus ornare enim vitae nisi maximus, ac efficitur libero bibendum.Pellentesque sit amet nunc odio. Vestibulum condimentum convallis orci, vitae euismod nunc sodales vel. Nullam egestas, velit in rutrum gravida, neque enim efficitur ex, commodo consectetur libero sapien ut orci. Fusce ac eros pharetra quam consectetur vulputate et et est. Suspendisse euismod arcu non mollis accumsan. Integer felis elit, lacinia eget dignissim in, hendrerit sit amet diam. Nullam sollicitudin vehicula nulla condimentum iaculis. Cras ultrices placerat cursus. Proin fringilla metus erat, vel cursus erat vestibulum a. Mauris quis semper risus. Vivamus elementum, neque non tincidunt fermentum, leo magna tincidunt leo, in accumsan eros leo nec mi. Nullam non turpis pretium, euismod erat in, pharetra quam. Sed magna lacus, pretium tempor nulla nec, imperdiet iaculis massa. Ut venenatis velit vitae consectetur luctus. Fusce nec dui in augue euismod elementum sed quis ex. Praesent pretium enim velit, sed consequat orci sollicitudin vitae.Aenean magna risus, efficitur quis augue vel, rutrum gravida leo. Suspendisse at leo at lectus laoreet varius quis vel ligula. Duis mollis in neque at semper. Aenean sem mauris, efficitur pharetra ullamcorper non, interdum sit amet ex. Quisque ut ornare quam. Aliquam efficitur purus tellus, ac porta massa vehicula eget. Cras sit amet bibendum augue. Pellentesque ac volutpat mauris, sit amet pellentesque risus. Etiam luctus ac est eu venenatis. Suspendisse pulvinar at risus et elementum. Proin orci nulla, vulputate in tincidunt sed, mollis eu mi. Sed quis ipsum nec mauris vestibulum ornare. Sed a rhoncus erat.Praesent aliquet rutrum vestibulum. Integer non augue sed quam fringilla rutrum quis id ex. Pellentesque quis orci malesuada, tristique risus eu, suscipit ligula. Nunc nisl neque, iaculis vel risus id, tincidunt euismod magna. Ut libero dolor, fermentum ut enim quis, commodo blandit odio. Phasellus nec lobortis nunc. Integer metus ex, sagittis vel ornare nec, sagittis ac ex. Aliquam vel sollicitudin nisl. Sed eu tincidunt eros. Suspendisse commodo dui id sem vestibulum euismod. Pellentesque imperdiet lacus ut tortor sollicitudin, non lobortis velit interdum. Mauris scelerisque ac ligula in fermentum. Etiam a imperdiet leo, vitae tristique enim. Phasellus blandit justo tellus, sit amet venenatis libero venenatis eget. Nulla et tristique augue, eget rutrum sem.Quisque ut convallis neque. Curabitur mollis mi lacus, et vestibulum est blandit id. Proin fermentum in nibh eget commodo. Curabitur quis feugiat leo. Donec dapibus vel sem nec commodo. Nunc velit magna, laoreet pellentesque aliquam sed, varius sit amet massa. Quisque suscipit ultricies massa, et fermentum metus suscipit vitae. Sed aliquet euismod odio, at faucibus risus laoreet eget. Nam at nulla vitae lorem auctor commodo.</string>
+    <string name="accept">ACCEPT</string>
+    <string name="deny">DENY</string>
+    <string name="login">Login</string>
+    <string name="or">OR USING</string>
+    <string name="google_account">Google Account</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password">Password</string>
+
+    <string name="error_password_too_short">The password should be at least 5 characters.</string>
+    <string name="error_empty_field">The field is empty.</string>
+    <string name="error_invalid_user">Email address or password is invalid.</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:endColor="@android:color/white"
+                android:startColor="@android:color/white" />
+
+            <stroke
+                android:width="20dp"
+                android:color="@color/colorPrimary"/>
+
+            <size
+                android:width="@dimen/space_google_logo"
+                android:height="@dimen/space_google_logo" />
+        </shape>
+    </item>
+    <item
+        android:bottom="18dp"
+        android:drawable="@drawable/google_logo"
+        android:left="16dp"
+        android:right="18dp"
+        android:top="16dp" />
+</layer-list>
