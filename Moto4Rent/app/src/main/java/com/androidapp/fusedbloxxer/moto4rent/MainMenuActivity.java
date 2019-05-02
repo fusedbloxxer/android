@@ -9,6 +9,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -25,13 +27,7 @@ import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private BottomNavigationView mBottomNavigationView;
-    private CoordinatorLayout mCoordinatorLayout;
-    private PageAdapter mPageAdapter;
-    private ViewPager mViewPager;
     private boolean mCloseCheck;
-    private MenuItem mPreviousMenuItem;
-    private int mBottomTabCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +35,6 @@ public class MainMenuActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_menu);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,8 +44,8 @@ public class MainMenuActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         initView();
-        setViewPagerAdapter();
 
+        // FAB action
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,70 +54,18 @@ public class MainMenuActivity extends AppCompatActivity
                         .show();
             }
         });
+
+        // Check the home tab and display its fragment.
+        navigationView.getMenu()
+                .getItem(0)
+                .setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu()
+                .getItem(0));
+
     }
 
-    private void setViewPagerAdapter() {
-        mPageAdapter = new PageAdapter(getSupportFragmentManager());
-
-        mPageAdapter.addFragment(new TripFragment());
-        mPageAdapter.addFragment(new ShowCaseFragment());
-        mPageAdapter.addFragment(new RentFragment());
-        mViewPager.setAdapter(mPageAdapter);
-
-        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int id = menuItem.getItemId();
-
-                if (id == R.id.nav_bot_trip) {
-                    mPreviousMenuItem = menuItem;
-                    mViewPager.setCurrentItem(0);
-                    return true;
-                } else if (id == R.id.nav_bot_showcase) {
-                    mPreviousMenuItem = menuItem;
-                    mViewPager.setCurrentItem(1);
-                    return true;
-                } else if (id == R.id.nav_bot_rent) {
-                    mPreviousMenuItem = menuItem;
-                    mViewPager.setCurrentItem(2);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (mPreviousMenuItem != null) {
-                    mPreviousMenuItem.setChecked(false);
-                    mPreviousMenuItem = mBottomNavigationView.getMenu().getItem(position);
-                    mPreviousMenuItem.setChecked(true);
-                } else {
-                    mPreviousMenuItem = mBottomNavigationView.getMenu().getItem(position);
-                    mPreviousMenuItem.setChecked(true);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-
-        mBottomNavigationView.setSelectedItemId(R.id.nav_bot_showcase);
-    }
 
     private void initView() {
-        mCoordinatorLayout = findViewById(R.id.coordinator_layout);
-        mBottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        mViewPager = findViewById(R.id.view_pager);
-        mBottomTabCount = 3;
         mCloseCheck = false;
     }
 
@@ -172,7 +115,11 @@ public class MainMenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_placeholder, new HomeFragment());
+            fragmentTransaction.commit();
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
