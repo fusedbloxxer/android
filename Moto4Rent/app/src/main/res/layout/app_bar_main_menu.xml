@@ -24,6 +24,7 @@
 
     <include layout="@layout/content_main_menu" />
 
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -32,6 +33,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="@dimen/space_16"
         android:layout_marginBottom="@dimen/space_72"
-        android:src="@drawable/motorcycle" />
+        android:src="@drawable/motorcycle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.design.widget.CoordinatorLayout>

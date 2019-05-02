@@ -15,4 +15,7 @@
     <dimen name="bottom_nav_height">56dp</dimen>
     <dimen name="space_56">56dp</dimen>
     <dimen name="space_72">72dp</dimen>
+    <dimen name="text_space_16">16sp</dimen>
+    <dimen name="text_space_24">24sp</dimen>
+    <dimen name="space_48">48dp</dimen>
 </resources>

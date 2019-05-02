@@ -9,7 +9,6 @@ import java.util.List;
 
 class PageAdapter extends FragmentPagerAdapter {
     private List<Fragment> mFragmentList;
-    private int mBottomTabCount;
 
     public PageAdapter(FragmentManager fm) {
         super(fm);
@@ -22,10 +21,7 @@ class PageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        if (mFragmentList.size() > 0 && i >= 0 && i < mFragmentList.size()) {
-            return mFragmentList.get(i);
-        }
-        return null;
+        return mFragmentList.get(i);
     }
 
     @Override

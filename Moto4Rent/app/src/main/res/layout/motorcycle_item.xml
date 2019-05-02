@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_8"
+    app:cardCornerRadius="@dimen/space_8">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/image_view_display"
+            android:layout_width="match_parent"
+            android:layout_height="224dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/example"
+            app:layout_constraintBottom_toTopOf="@id/linear_layout"
+            app:layout_constraintDimensionRatio="w,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_model" />
+
+        <TextView
+            android:id="@+id/text_view_model"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_space_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_display"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Model Name" />
+
+
+        <FrameLayout
+            android:layout_width="@dimen/space_48"
+            android:layout_height="@dimen/space_48"
+            android:layout_margin="@dimen/space_8"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_view_looking"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/round_logo_green" />
+
+            <TextView
+                android:id="@+id/text_view_looking"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="20" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_display"
+            app:layout_constraintVertical_bias="0">
+
+            <TextView
+                android:id="@+id/text_view_starting_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_space_24"
+                tools:text="Starting Price" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_32"
+                android:layout_marginTop="@dimen/space_8"
+                android:layout_marginRight="@dimen/space_32"
+                android:layout_marginBottom="@dimen/space_8"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:layout_marginBottom="@dimen/space_8"
+                android:id="@+id/text_view_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_space_24"
+                tools:text="Deposit Sum: 256$" />
+
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

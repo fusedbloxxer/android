@@ -2,7 +2,7 @@
     <string name="app_name">Moto4Rent</string>
     <string name="moto4rent">Moto4Rent</string>
     <string name="username">Username</string>
-    <string name="email_address">Email address</string>
+    <string name="email_address">Email Address</string>
     <string name="agree_to_terms_and_conditions">Agree to Terms and Conditions</string>
     <string name="moto_website">http://www.moto4rent.ro</string>
 
@@ -46,10 +46,10 @@
     <string name="recover_password">Recover Password</string>
     <string name="skip">SKIP</string>
     <string name="settings">Settings</string>
-    <string name="journeys">Journeys</string>
+    <string name="menu_history">History</string>
     <string name="rate_us">Rate us</string>
     <string name="feedback">Feedback</string>
-    <string name="about_us">About us</string>
+    <string name="contact_us">Contact us</string>
     <string name="new_in_this_version">New in this Version</string>
     <string name="logout">Logout</string>
     <string name="communicate">Communicate</string>
@@ -58,4 +58,48 @@
     <string name="trip">Trip</string>
     <string name="showcase">Showcase</string>
     <string name="rent">Rent</string>
+    <string name="deposit_sum">Deposit</string>
+    <string name="start_price">Starting Price</string>
+    <string name="category">Category</string>
+
+    <string name="share_message_1">
+        #MOTO4RENT \n Iubesti liniile elegante ale motocicletelor clasice? Naked-ul Kawasaki ZR7 te
+        asteapta sa il incerci. \n www.moto4rent.ro</string>
+
+    <string name="share_message_2">
+        #MOTO4RENT \n La granita dintre stilul sport si naked, Hornet beneficiaza de propulsorul
+        popularului model de viteza CBR600 si de suspensii intalnite pe modelele carenate din
+        aceeasi perioada cu ea. Proportiile compacte si usurinta in manevrare raman insa fara
+        indoiala cele ale clasei naked, Hornetul constituind in perioada aparitiei cel mai puternic
+        exemplar al categoriei sale.\n www.moto4rent.ro</string>
+
+    <string name="share_message_3">
+        #MOTO4RENT \n Nu ai avut curaj sa faci pasul la supersport dar vrei sa te convingi ca poti
+        stapani in siguranta un model de viteza? Kawasaki ZX6R, cunoscut ca si 636, este bland la
+        turatii reduse si poate merge linistit in oras, aratandu-si puterea doar cand jocul se
+        schimba o data cu regimul de ture. \n www.moto4rent.ro</string>
+
+    <string name="share_message_4">
+        #MOTO4RENT \n O motocicleta versatila, in elementul ei aproape oriunde pe asfalt, de la strazile orasului aglomerat la soselele sinuoase de munte. Masa relativ redusa, consumul mic, motorul consacrat in V de 650 cmc al celor de la Suzuki promit plimbari placute. \n www.moto4rent.ro
+    </string>
+
+    <string name="share_message_5">
+        #MOTO4RENT \n Un model clasic supersport din clasa 600cc, pentru pasionatii genului. Pozitia pe motocicleta, franele supra dimensionate, plaja inalta de turatii pentru exploatarea optima sunt caracteristici care cer experienta si siguranta din partea pilotului dar ofera satisfactii pe masura. Se recomanda riderilor cu experienta pe modele supersport. \n www.moto4rent.ro
+    </string>
+
+    <string name="share_message_6">
+        #MOTO4RENT \n Esti proaspat posesor de permis categoria A si doresti sa inchiriezi o motocicleta cu care esti familiarizat din scoala moto? Nu ai mai condus de mult si doresti sa te familiarizezi din nou cu motocicleta? Ai nevoie de un commuter de incredere de care sa te folosesti in regim zilnic? Alege nakedul Suzuki GS500 \n www.moto4rent.ro
+    </string>
+    <string name="thanks_contact">Thank you for contacting us.</string>
+    <string name="thanks_share">Thank you for sharing!</string>
+    <string name="email_moto4rent">contact@moto4rent.ro</string>
+    <string name="contact_page">Contact Page</string>
+    <string name="phone_1">0720083839</string>
+    <string name="phone_2">0770462537</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="location">Location</string>
+    <string name="brand_details">Brand Details</string>
+    <string name="brand_description">SC ART NET SRL\nJ40/1034/200 RO12674545\nSediu Social Vlaicu Voda 28, Sector 3, Bucuresti\n(non-commercial location)\nUniCredit Bank - Dristor\nRO94BACX0000001600438000</string>
+    <string name="moto4rent_address">Strada Ion Minulescu 105, București 031215</string>
+    <string name="emailto">Send email...</string>
 </resources>

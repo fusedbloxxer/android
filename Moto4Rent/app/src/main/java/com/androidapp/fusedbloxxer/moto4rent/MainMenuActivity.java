@@ -3,15 +3,11 @@ package com.androidapp.fusedbloxxer.moto4rent;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -25,9 +21,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private boolean mCloseCheck;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class MainMenuActivity extends AppCompatActivity
         initView();
 
         // FAB action
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,14 +121,82 @@ public class MainMenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_history) {
+            Toast
+                    .makeText(this, "Option coming soon . . .", Toast.LENGTH_SHORT)
+                    .show();
+        } else if (id == R.id.nav_settings) {
+            Toast
+                    .makeText(this, "Option coming soon . . .", Toast.LENGTH_SHORT)
+                    .show();
+        } else if (id == R.id.nav_contact) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_placeholder, new ContactFragment());
+            fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_rate) {
+            Toast
+                    .makeText(this, "App is not on the market", Toast.LENGTH_SHORT)
+                    .show();
+        } else if (id == R.id.nav_feedback) {
+            Intent feedbackIntent = new Intent(Intent.ACTION_SENDTO);
+            String uriText = "mailto:" + getString(R.string.email_moto4rent)
+                    + "?subject="
+                    + Uri.encode("Moto4Rent - FeedBack");
 
+            feedbackIntent.setData(Uri.parse(uriText));
+
+            if (feedbackIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(Intent.createChooser(feedbackIntent, "Send email..."));
+                Toast
+                        .makeText(this, R.string.thanks_contact, Toast.LENGTH_SHORT)
+                        .show();
+            }
         } else if (id == R.id.nav_share) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            String message = "#MOTO4RENT\nwww.moto4rent.ro";
 
-        } else if (id == R.id.nav_version) {
-
+            switch (new Random().nextInt(4)) {
+                case 0: {
+                    message = getResources()
+                            .getString(R.string.share_message_1);
+                }
+                break;
+                case 1: {
+                    message = getResources()
+                            .getString(R.string.share_message_2);
+                }
+                break;
+                case 2: {
+                    message = getResources()
+                            .getString(R.string.share_message_3);
+                }
+                break;
+                case 3: {
+                    message = getResources()
+                            .getString(R.string.share_message_4);
+                }
+                break;
+                case 4: {
+                    message = getResources()
+                            .getString(R.string.share_message_5);
+                }
+                break;
+                case 5: {
+                    message = getResources()
+                            .getString(R.string.share_message_6);
+                }
+                break;
+            }
+            shareIntent.putExtra(Intent.EXTRA_TEXT, message);
+            shareIntent.setType("text/plain");
+            if (shareIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(Intent.createChooser(shareIntent, "#MOTO4RENT"));
+                Toast
+                        .makeText(this, R.string.thanks_share, Toast.LENGTH_SHORT)
+                        .show();
+            }
         } else if (id == R.id.nav_logout) {
             AlertDialog.Builder logoutAlert = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
 

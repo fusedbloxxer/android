@@ -26,7 +26,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MotoItem" parent="PrimaryAppTheme.Base">
+        <item name="android:textViewStyle">@style/OrangeTextViewStyle</item>
+    </style>
+
     <!-- Define element styles here -->
+    <style name="OrangeTextViewStyle">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="PrimaryToolbarStyle">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@android:color/white</item>
