@@ -99,7 +99,8 @@
     <string name="phone_number">Phone Number</string>
     <string name="location">Location</string>
     <string name="brand_details">Brand Details</string>
-    <string name="brand_description">SC ART NET SRL\nJ40/1034/200 RO12674545\nSediu Social Vlaicu Voda 28, Sector 3, Bucuresti\n(non-commercial location)\nUniCredit Bank - Dristor\nRO94BACX0000001600438000</string>
+    <string name="brand_description">SC ART NET SRL\nJ40/1034/2000\nRO12674545\nSediu Social Vlaicu Voda 28\nSector 3 Bucuresti\n(non-commercial location)\nUniCredit Bank - Dristor\nRO94BACX0000001600438000</string>
     <string name="moto4rent_address">Strada Ion Minulescu 105, București 031215</string>
     <string name="emailto">Send email...</string>
+    <string name="back_text">Back</string>
 </resources>

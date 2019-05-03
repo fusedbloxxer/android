@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/PrimaryAppTheme.ActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".FullImageActivity"
+            android:theme="@style/PrimaryAppTheme.NoActionBar" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".RegisterUserActivity" />
         <activity

@@ -1,6 +1,8 @@
 package com.androidapp.fusedbloxxer.moto4rent;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +18,8 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class ContactFragment extends Fragment {
-    private TextView mTextViewFirstPhone, mTextViewSecondPhone, mTextViewEmail, mTextViewLocation;
+    private TextView mTextViewFirstPhone, mTextViewSecondPhone,
+            mTextViewEmail, mTextViewLocation, mTextViewBrand;
     private ImageView mImageViewLocation;
 
     public ContactFragment() {
@@ -76,6 +79,21 @@ public class ContactFragment extends Fragment {
                 }
             }
         });
+
+        mTextViewBrand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext(), R.style.AlertDialogStyle);
+
+                alertDialog
+                        .setTitle(getResources().getString(R.string.brand_details))
+                        .setMessage(mTextViewBrand.getText().toString())
+                        .setPositiveButton(getResources()
+                                .getText(R.string.back_text), null)
+                        .create()
+                        .show();
+            }
+        });
     }
 
     private void initView(View itemView) {
@@ -84,5 +102,6 @@ public class ContactFragment extends Fragment {
         mTextViewEmail = itemView.findViewById(R.id.text_view_email);
         mTextViewLocation = itemView.findViewById(R.id.text_view_location);
         mImageViewLocation = itemView.findViewById(R.id.image_view_map);
+        mTextViewBrand = itemView.findViewById(R.id.text_view_brand);
     }
 }

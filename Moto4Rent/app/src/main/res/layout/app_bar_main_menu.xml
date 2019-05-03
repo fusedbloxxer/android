@@ -33,7 +33,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="@dimen/space_16"
         android:layout_marginBottom="@dimen/space_72"
-        android:src="@drawable/motorcycle"
+        android:src="@drawable/moto4rent_fab_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
