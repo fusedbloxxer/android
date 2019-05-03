@@ -1,9 +1,11 @@
 package com.androidapp.fusedbloxxer.moto4rent;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -15,6 +17,7 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
     public static final String IMAGE_ID = "image_id";
     public static final String DATE_TAKEN = "image_date";
     public static final String RATING = "rating";
+    public static final String IMAGE_TITLE = "image_title";
     private ImageView mImageViewGallery;
     private TextView mTextViewGalleryTitle;
     private RatingBar mRatingBarFavorite;
@@ -40,6 +43,7 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
         initView(itemView);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initView(View itemView) {
         mImageViewGallery = itemView.findViewById(R.id.image_view_gallery);
         mTextViewGalleryTitle = itemView.findViewById(R.id.text_view_gallery_title);
@@ -51,7 +55,10 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Intent openImage = new Intent(mContext, FullImageActivity.class);
                 openImage.putExtra(IMAGE_ID, mImageId); // send image id
-                openImage.putExtra(DATE_TAKEN, mDate); // send date
+                openImage.putExtra(DATE_TAKEN, mDate.getTime()); // send date
+                openImage.putExtra(IMAGE_TITLE, mTextViewGalleryTitle // send title
+                        .getText()
+                        .toString());
                 openImage.putExtra(RATING, mRatingBarFavorite
                         .getRating());
                 mContext.startActivity(openImage);
@@ -60,14 +67,17 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
 
         //TODO: Listener pe fragmente
         // mRatingBarFavorite.setEnabled(false);
-        mRatingBarFavorite.setOnClickListener(new View.OnClickListener() {
+        mRatingBarFavorite.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if (mRatingBarFavorite.getRating() == 1) {
-                    mRatingBarFavorite.setRating(0);
-                } else {
-                    mRatingBarFavorite.setRating(1);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (mRatingBarFavorite.getRating() == 1) {
+                        mRatingBarFavorite.setRating(0);
+                    } else {
+                        mRatingBarFavorite.setRating(1);
+                    }
                 }
+                return true;
             }
         });
     }

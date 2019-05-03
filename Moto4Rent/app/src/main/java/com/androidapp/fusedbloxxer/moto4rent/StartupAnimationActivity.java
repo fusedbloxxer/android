@@ -5,7 +5,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class StartupAnimationActivity extends AppCompatActivity {
+public class StartupAnimationActivity extends AbstractPortraitActivity {
     private CountDownTimer countDownTimer;
     private int timeInMilliseconds = 2000;
 

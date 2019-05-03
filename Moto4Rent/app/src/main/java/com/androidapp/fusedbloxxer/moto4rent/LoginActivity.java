@@ -19,7 +19,7 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AbstractPortraitActivity {
     public static final int INTENT_REQUEST_REGISTER_USER = 1;
     public static final int INTENT_REQUEST_FORGOT_PASS = 2;
     public static final String INTENT_REQUEST_EMAIL_ADDRESS = "email_address";

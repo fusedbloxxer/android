@@ -103,4 +103,5 @@
     <string name="moto4rent_address">Strada Ion Minulescu 105, București 031215</string>
     <string name="emailto">Send email...</string>
     <string name="back_text">Back</string>
+    <string name="take_a_photo">Take A Photo</string>
 </resources>

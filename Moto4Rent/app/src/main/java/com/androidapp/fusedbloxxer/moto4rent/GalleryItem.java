@@ -37,18 +37,14 @@ public class GalleryItem {
         private boolean mFavorite;
         private Date mDate;
 
-        GalleryItemBuilder(int imageResourceId, String title) {
+        GalleryItemBuilder(int imageResourceId, String title, Date mDate) {
             this.mImageResourceId = imageResourceId;
             this.mTitle = title;
+            this.mDate = mDate;
         }
 
         public GalleryItemBuilder setFavorite(boolean favorite) {
             mFavorite = favorite;
-            return this;
-        }
-
-        public GalleryItemBuilder setDate(Date date) {
-            this.mDate = date;
             return this;
         }
 

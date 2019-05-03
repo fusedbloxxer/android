@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.ListIterator;
 
 
 /**
@@ -24,7 +27,6 @@ public class ImageFragment extends Fragment {
     public ImageFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,20 +57,55 @@ public class ImageFragment extends Fragment {
     private void setData() {
         // TODO: Preluare imagini din baza de date.
         mGalleryList = new ArrayList<>();
-        mGalleryList.add(new GalleryItem
-                .GalleryItemBuilder(R.drawable.moto_display_kawasaki_zr7, "Kawa")
-                .setDate(new Date())
-                .setFavorite(true)
-                .build());
-        mGalleryList.add(new GalleryItem
-                .GalleryItemBuilder(R.drawable.moto_display_yamaha_supertenere, "Supertenere")
-                .setDate(new Date())
-                .setFavorite(false)
-                .build());
-        mGalleryList.add(new GalleryItem
-                .GalleryItemBuilder(R.drawable.moto_display_suzuki_gs500e, "GS500E")
-                .setDate(new Date())
-                .setFavorite(true)
-                .build());
+        for (int i = 1; i < 200; i++) {
+            mGalleryList.add(new GalleryItem
+                    .GalleryItemBuilder(R.drawable.moto_display_kawasaki_zr7, "Kawa", new Date())
+                    .setFavorite(false)
+                    .build());
+            mGalleryList.add(new GalleryItem
+                    .GalleryItemBuilder(R.drawable.moto_display_yamaha_supertenere, "Supertenere", new Date())
+                    .setFavorite(false)
+                    .build());
+            mGalleryList.add(new GalleryItem
+                    .GalleryItemBuilder(R.drawable.moto_display_suzuki_gs500e, "GS500E", new Date())
+                    .setFavorite(true)
+                    .build());
+        }
+
+
+        Bundle extras = getArguments();
+        if (extras != null) {
+            int operation = extras.getInt(GalleryPageAdapter.OPERATION);
+            switch (operation) {
+                case 1: {
+                    sort(new Comparator<GalleryItem>() {
+                        @Override
+                        public int compare(GalleryItem o1, GalleryItem o2) {
+                            return o1
+                                    .getDate().compareTo(o2.getDate());
+                        }
+                    });
+                }
+                break;
+                case 2: {
+                    filterByFavorite();
+                }
+            }
+        }
+    }
+
+    public void sort(Comparator<? super GalleryItem> comparator) {
+        Collections.sort(mGalleryList, comparator);
+    }
+
+    public void filterByFavorite() {
+        ListIterator<GalleryItem> listIterator = mGalleryList.listIterator();
+        while (listIterator.hasNext()) {
+            if (!listIterator
+                    .next()
+                    .isFavorite()) {
+                listIterator.remove();
+            }
+        }
     }
 }

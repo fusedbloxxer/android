@@ -36,8 +36,9 @@ public class GalleryFragment extends Fragment {
         mViewPager = itemView.findViewById(R.id.view_pager_gallery);
         mTabLayout = itemView.findViewById(R.id.tab_layout_gallery);
 
+        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.ic_photo_camera_black_24dp));
         mTabLayout.addTab(mTabLayout.newTab().setText("Gallery"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Favorites"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Favorite"));
         mTabLayout.addTab(mTabLayout.newTab().setText("Recent"));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 

@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterUserActivity extends AppCompatActivity {
+public class RegisterUserActivity extends AbstractPortraitActivity {
     private static final int INTENT_REQUEST_TERMS = 1;
 
     private EditText mEditTextEmail, mEditTextPass;

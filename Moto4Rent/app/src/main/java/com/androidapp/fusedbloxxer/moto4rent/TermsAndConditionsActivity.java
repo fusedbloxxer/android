@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-public class TermsAndConditionsActivity extends AppCompatActivity {
+public class TermsAndConditionsActivity extends AbstractPortraitActivity {
     private Toolbar mToolbar;
 
     @Override

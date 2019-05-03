@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class MainMenuActivity extends AppCompatActivity
+public class MainMenuActivity extends AbstractPortraitActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private boolean mCloseCheck;
     private FloatingActionButton fab;
