@@ -1,12 +1,14 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.Login;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-public class ForgotPasswordActivity extends AbstractPortraitActivity {
+import com.androidapp.fusedbloxxer.moto4rent.R;
+
+public class ForgotPasswordActivity extends AppCompatActivity {
     private EditText mEditTextEmail;
 
     @Override

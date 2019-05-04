@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TripFragment">
+    tools:context=".MainMenu.MainFragments.Trip.TripFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Functionalitatea de sistem de puncte -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

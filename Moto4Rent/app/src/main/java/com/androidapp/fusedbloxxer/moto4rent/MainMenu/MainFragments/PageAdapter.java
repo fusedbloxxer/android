@@ -1,4 +1,4 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

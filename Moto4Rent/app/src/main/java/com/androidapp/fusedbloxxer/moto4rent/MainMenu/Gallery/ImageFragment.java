@@ -1,6 +1,7 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.androidapp.fusedbloxxer.moto4rent.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +36,7 @@ public class ImageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_image, container, false);
         initView(view);
+        view.setTag(R.string.image_fragment_tag);
         return view;
     }
 
@@ -50,7 +54,7 @@ public class ImageFragment extends Fragment {
 
     private void setLayoutManager() {
         StaggeredGridLayoutManager staggeredGridLayoutManager =
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerViewGallery.setLayoutManager(staggeredGridLayoutManager);
     }
 
@@ -92,6 +96,13 @@ public class ImageFragment extends Fragment {
                 }
             }
         }
+    }
+
+    public void addPicToGallery(Bitmap mBitmap, String title) {
+        mGalleryList
+                .add(new GalleryItem
+                        .GalleryItemBuilder(mBitmap, title, new Date())
+                .build());
     }
 
     public void sort(Comparator<? super GalleryItem> comparator) {

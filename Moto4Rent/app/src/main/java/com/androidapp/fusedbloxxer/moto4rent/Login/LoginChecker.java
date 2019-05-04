@@ -1,9 +1,10 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.Login;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.androidapp.fusedbloxxer.moto4rent.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

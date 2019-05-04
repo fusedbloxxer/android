@@ -1,4 +1,4 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.Showcase;
 
 import java.util.HashMap;
 import java.util.Map;

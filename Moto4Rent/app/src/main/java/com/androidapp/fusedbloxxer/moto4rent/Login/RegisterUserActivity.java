@@ -1,17 +1,18 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.Login;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterUserActivity extends AbstractPortraitActivity {
+import com.androidapp.fusedbloxxer.moto4rent.R;
+
+public class RegisterUserActivity extends AppCompatActivity {
     private static final int INTENT_REQUEST_TERMS = 1;
 
     private EditText mEditTextEmail, mEditTextPass;

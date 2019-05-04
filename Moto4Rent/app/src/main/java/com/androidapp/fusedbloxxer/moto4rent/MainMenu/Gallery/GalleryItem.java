@@ -1,8 +1,11 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery;
+
+import android.graphics.Bitmap;
 
 import java.util.Date;
 
 public class GalleryItem {
+    private Bitmap mBitmapImage;
     private int mImageResourceId;
     private String mTitle;
     private boolean mFavorite;
@@ -24,6 +27,10 @@ public class GalleryItem {
         return mTitle;
     }
 
+    public Bitmap getBitmapImage() {
+        return mBitmapImage;
+    }
+
     private GalleryItem(GalleryItemBuilder galleryItemBuilder) {
         this.mImageResourceId = galleryItemBuilder.mImageResourceId;
         this.mTitle = galleryItemBuilder.mTitle;
@@ -36,9 +43,16 @@ public class GalleryItem {
         private String mTitle;
         private boolean mFavorite;
         private Date mDate;
+        private Bitmap mBitmapImage;
 
         GalleryItemBuilder(int imageResourceId, String title, Date mDate) {
             this.mImageResourceId = imageResourceId;
+            this.mTitle = title;
+            this.mDate = mDate;
+        }
+
+        GalleryItemBuilder(Bitmap mBitmapImage, String title, Date mDate) {
+            this.mBitmapImage = mBitmapImage;
             this.mTitle = title;
             this.mDate = mDate;
         }

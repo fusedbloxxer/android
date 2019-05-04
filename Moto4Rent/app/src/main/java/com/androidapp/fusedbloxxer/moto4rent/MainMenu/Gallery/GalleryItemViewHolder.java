@@ -1,8 +1,10 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -11,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.androidapp.fusedbloxxer.moto4rent.R;
+
+import java.io.ByteArrayOutputStream;
 import java.util.Date;
 
 public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
@@ -18,6 +23,7 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
     public static final String DATE_TAKEN = "image_date";
     public static final String RATING = "rating";
     public static final String IMAGE_TITLE = "image_title";
+    public static final String IMAGE_BITMAP = "image_bitmap";
     private ImageView mImageViewGallery;
     private TextView mTextViewGalleryTitle;
     private RatingBar mRatingBarFavorite;
@@ -59,6 +65,13 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
                 openImage.putExtra(IMAGE_TITLE, mTextViewGalleryTitle // send title
                         .getText()
                         .toString());
+
+                BitmapDrawable drawable = (BitmapDrawable) mImageViewGallery.getDrawable();
+                Bitmap mBitmap = drawable.getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                openImage.putExtra(IMAGE_BITMAP, stream.toByteArray());
+
                 openImage.putExtra(RATING, mRatingBarFavorite
                         .getRating());
                 mContext.startActivity(openImage);
@@ -66,7 +79,6 @@ public class GalleryItemViewHolder extends RecyclerView.ViewHolder {
         });
 
         //TODO: Listener pe fragmente
-        // mRatingBarFavorite.setEnabled(false);
         mRatingBarFavorite.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

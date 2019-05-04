@@ -1,19 +1,19 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import java.util.Comparator;
-
 class GalleryPageAdapter extends FragmentPagerAdapter {
     public static final String OPERATION = "operation"; // 1 - sort, 2 - filter
     private int mTabCount;
+    private FragmentManager fm;
 
     public GalleryPageAdapter(FragmentManager fm, int tabCount) {
         super(fm);
         mTabCount = tabCount;
+        this.fm = fm;
     }
 
     @Override

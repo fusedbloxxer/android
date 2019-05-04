@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/space_8"
-    tools:context=".TermsAndConditionsActivity">
+    tools:context=".Login.TermsAndConditionsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -54,7 +54,7 @@
                     <Button
                         android:onClick="declaneTermsOnClick"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:id="@+id/button_deny"
+                        android:id="@+id/button_discard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

@@ -1,4 +1,4 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.Contact;
 
 
 import android.app.AlertDialog;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidapp.fusedbloxxer.moto4rent.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +27,6 @@ public class ContactFragment extends Fragment {
     public ContactFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

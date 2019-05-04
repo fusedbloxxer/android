@@ -1,13 +1,11 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.Login;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,10 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.NavigationDrawerActivity;
+import com.androidapp.fusedbloxxer.moto4rent.R;
 
-public class LoginActivity extends AbstractPortraitActivity {
+public class LoginActivity extends AppCompatActivity {
     public static final int INTENT_REQUEST_REGISTER_USER = 1;
     public static final int INTENT_REQUEST_FORGOT_PASS = 2;
     public static final String INTENT_REQUEST_EMAIL_ADDRESS = "email_address";
@@ -138,7 +136,7 @@ public class LoginActivity extends AbstractPortraitActivity {
     }
 
     private void openMainActivity(EditText mEditTextEmail) {
-        Intent openMainMenu = new Intent(LoginActivity.this, MainMenuActivity.class);
+        Intent openMainMenu = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
         // TODO: Poate sa adaug mai multe informatii despre client ? Sa iau punctele sale, etc.
         if (mEditTextEmail != null) {
             openMainMenu.putExtra(INTENT_REQUEST_EMAIL_ADDRESS, mEditTextEmail.getText().toString());

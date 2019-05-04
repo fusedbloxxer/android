@@ -1,4 +1,4 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -22,12 +21,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.Contact.ContactFragment;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery.GalleryFragment;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.HomeFragment;
+import com.androidapp.fusedbloxxer.moto4rent.Login.LoginActivity;
+import com.androidapp.fusedbloxxer.moto4rent.R;
+
 import java.util.Random;
 
-public class MainMenuActivity extends AbstractPortraitActivity
+public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String SAVE_INSTANCE_FRAGMENT_KEY = "save_fragment";
     private boolean mCloseCheck;
     private FloatingActionButton fab;
+    private int fragment_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +42,7 @@ public class MainMenuActivity extends AbstractPortraitActivity
         setContentView(R.layout.activity_main_menu);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        getSupportActionBar().setTitle(R.string.app_name);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,23 +58,37 @@ public class MainMenuActivity extends AbstractPortraitActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainMenuActivity.this, "Hey", Toast.LENGTH_SHORT)
+                Toast.makeText(NavigationDrawerActivity.this, "Hey", Toast.LENGTH_SHORT)
                         .show();
             }
         });
 
         // Check the home tab and display its fragment.
-        navigationView.getMenu()
-                .getItem(0)
-                .setChecked(true);
-        onNavigationItemSelected(navigationView.getMenu()
-                .getItem(0));
-
+        if (savedInstanceState == null) {
+            fragment_id = 0;
+            navigationView.getMenu()
+                    .getItem(fragment_id)
+                    .setChecked(true);
+            onNavigationItemSelected(navigationView.getMenu()
+                    .getItem(fragment_id));
+        } else {
+            fragment_id = savedInstanceState.getInt(SAVE_INSTANCE_FRAGMENT_KEY);
+            navigationView.getMenu()
+                    .findItem(fragment_id)
+                    .setChecked(true);
+            onNavigationItemSelected(navigationView.getMenu()
+                    .findItem(fragment_id));
+        }
     }
-
 
     private void initView() {
         mCloseCheck = false;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_INSTANCE_FRAGMENT_KEY, fragment_id);
     }
 
     @Override
@@ -76,8 +97,8 @@ public class MainMenuActivity extends AbstractPortraitActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (mCloseCheck == false) {
-                Toast.makeText(MainMenuActivity.this,
+            if (!mCloseCheck) {
+                Toast.makeText(NavigationDrawerActivity.this,
                         getResources().getText(R.string.message_exit), Toast.LENGTH_SHORT)
                         .show();
                 mCloseCheck = true;
@@ -109,43 +130,44 @@ public class MainMenuActivity extends AbstractPortraitActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        fragment_id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (fragment_id == R.id.nav_home) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_placeholder, new HomeFragment());
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (fragment_id == R.id.nav_gallery) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_placeholder, new GalleryFragment());
+            GalleryFragment galleryFragment = new GalleryFragment();
+
+            fragmentTransaction.replace(R.id.fragment_placeholder, galleryFragment);
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_history) {
+        } else if (fragment_id == R.id.nav_history) {
             Toast
                     .makeText(this, "Option coming soon . . .", Toast.LENGTH_SHORT)
                     .show();
-        } else if (id == R.id.nav_settings) {
+        } else if (fragment_id == R.id.nav_settings) {
             Toast
                     .makeText(this, "Option coming soon . . .", Toast.LENGTH_SHORT)
                     .show();
-        } else if (id == R.id.nav_contact) {
+        } else if (fragment_id == R.id.nav_contact) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_placeholder, new ContactFragment());
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_rate) {
+        } else if (fragment_id == R.id.nav_rate) {
             Toast
                     .makeText(this, "App is not on the market", Toast.LENGTH_SHORT)
                     .show();
-        } else if (id == R.id.nav_feedback) {
+        } else if (fragment_id == R.id.nav_feedback) {
             Intent feedbackIntent = new Intent(Intent.ACTION_SENDTO);
             String uriText = "mailto:" + getString(R.string.email_moto4rent)
                     + "?subject="
@@ -159,7 +181,7 @@ public class MainMenuActivity extends AbstractPortraitActivity
                         .makeText(this, R.string.thanks_contact, Toast.LENGTH_SHORT)
                         .show();
             }
-        } else if (id == R.id.nav_share) {
+        } else if (fragment_id == R.id.nav_share) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             String message = "#MOTO4RENT\nwww.moto4rent.ro";
 
@@ -203,7 +225,7 @@ public class MainMenuActivity extends AbstractPortraitActivity
                         .makeText(this, R.string.thanks_share, Toast.LENGTH_SHORT)
                         .show();
             }
-        } else if (id == R.id.nav_logout) {
+        } else if (fragment_id == R.id.nav_logout) {
             AlertDialog.Builder logoutAlert = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
 
             logoutAlert.setTitle(getResources().getString(R.string.alert_logout));
@@ -213,7 +235,7 @@ public class MainMenuActivity extends AbstractPortraitActivity
             logoutAlert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent logout = new Intent(MainMenuActivity.this, LoginActivity.class);
+                    Intent logout = new Intent(NavigationDrawerActivity.this, LoginActivity.class);
                     startActivity(logout);
                     finish();
                 }

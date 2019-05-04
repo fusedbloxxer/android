@@ -1,7 +1,6 @@
-package com.androidapp.fusedbloxxer.moto4rent;
+package com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments;
 
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,12 +9,14 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
-import java.util.Objects;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.Rent.RentFragment;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.Trip.TripFragment;
+import com.androidapp.fusedbloxxer.moto4rent.R;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.Showcase.ShowCaseFragment;
 
 
 /**
@@ -49,6 +50,20 @@ public class HomeFragment extends Fragment {
         setViewPagerAdapter();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        createAdapter();
+    }
+
+    private void createAdapter() {
+        mPageAdapter = new PageAdapter(getChildFragmentManager());
+
+        mPageAdapter.addFragment(new TripFragment());
+        mPageAdapter.addFragment(new ShowCaseFragment());
+        mPageAdapter.addFragment(new RentFragment());
+    }
+
     private void initView(View itemView) {
         mCoordinatorLayout = itemView.findViewById(R.id.coordinator_layout);
         mBottomNavigationView = itemView.findViewById(R.id.bottom_navigation_view);
@@ -57,11 +72,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void setViewPagerAdapter() {
-        mPageAdapter = new PageAdapter(getActivity().getSupportFragmentManager());
-
-        mPageAdapter.addFragment(new TripFragment());
-        mPageAdapter.addFragment(new ShowCaseFragment());
-        mPageAdapter.addFragment(new RentFragment());
         mViewPager.setAdapter(mPageAdapter);
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
