@@ -15,7 +15,7 @@ import com.androidapp.fusedbloxxer.moto4rent.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GalleryFragment extends Fragment implements GalleryListener{
+public class GalleryFragment extends Fragment implements GalleryListener {
     public static final String CURRENT_FRAGMENT = "current_fragment";
     private GalleryPageAdapter mGalleryPageAdapter;
     private ViewPager mViewPager;
@@ -61,6 +61,9 @@ public class GalleryFragment extends Fragment implements GalleryListener{
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                // TODO: !!! Lansare Camera si preluare imagine in activitate separata cand se
+                // apasa pe tabul cu Camera.
+
                 mViewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0) {
                     hideTabLayout();
