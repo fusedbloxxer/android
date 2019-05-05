@@ -58,6 +58,19 @@ public class CameraActivity extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
+    private void doNothing() {
+        boolean isBad = false;
+        if (isBad) {
+
+        } else if (isBad) {
+
+        } else if (isBad) {
+
+        } else if (isBad) {
+
+        }
+    }
+
     public void dispatchTakePictureIntent(View view) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED ||
