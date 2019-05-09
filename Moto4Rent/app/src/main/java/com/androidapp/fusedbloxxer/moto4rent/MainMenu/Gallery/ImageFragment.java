@@ -61,7 +61,7 @@ public class ImageFragment extends Fragment {
     private void setData() {
         // TODO: Preluare imagini din baza de date.
         mGalleryList = new ArrayList<>();
-        for (int i = 1; i < 200; i++) {
+        for (int i = 1; i < 10; i++) {
             mGalleryList.add(new GalleryItem
                     .GalleryItemBuilder(R.drawable.moto_display_kawasaki_zr7, "Kawa", new Date())
                     .setFavorite(false)

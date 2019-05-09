@@ -19,10 +19,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +39,7 @@ import java.util.Date;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment {
+public class CameraActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_EXTERNAL = 2;
     public static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final String SAVE_BITMAP = "bitmap_save";
@@ -55,35 +54,27 @@ public class CameraFragment extends Fragment {
     private ConstraintLayout mConstraintLayout;
     private ConstraintSet mConstraintSetDefault;
 
-    public CameraFragment() {
+    public CameraActivity() {
         // Required empty public constructor
     }
 
-    private void initView(View itemView) {
-        mImageViewPhoto = itemView.findViewById(R.id.image_view_photo);
-        mButton = itemView.findViewById(R.id.button_take_photo);
-        mEditText = itemView.findViewById(R.id.edit_text_title);
-        mButtonAccept = itemView.findViewById(R.id.button_accept);
-        mButtonDiscard = itemView.findViewById(R.id.button_discard);
-        mConstraintLayout = itemView.findViewById(R.id.camera_fragment_layout_alt);
+    private void initView() {
+        mImageViewPhoto = findViewById(R.id.image_view_photo);
+        mButton = findViewById(R.id.button_take_photo);
+        mEditText = findViewById(R.id.edit_text_title);
+        mButtonAccept = findViewById(R.id.button_accept);
+        mButtonDiscard = findViewById(R.id.button_discard);
+        mConstraintLayout = findViewById(R.id.camera_constraint_layout);
         (mConstraintSetDefault = new ConstraintSet()).clone(mConstraintLayout);
-        (mConstraintSetAlt = new ConstraintSet()).clone(getContext(), R.layout.fragment_camera_alt);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View itemView = inflater.inflate(R.layout.fragment_camera, container, false);
-        initView(itemView);
-        requestPermissions();
-        return itemView;
+        (mConstraintSetAlt = new ConstraintSet()).clone(this, R.layout.activity_camera_alt);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+        setContentView(R.layout.activity_camera);
+        initView();
+        requestPermissions();
     }
 
     @Override
@@ -98,26 +89,27 @@ public class CameraFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
             byte[] bytes = savedInstanceState.getByteArray(SAVE_BITMAP);
             if (bytes != null) {
                 mBitmapPhoto = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 mImageViewPhoto.setImageBitmap(mBitmapPhoto);
+                showEditImage();
             }
         }
     }
 
     private void requestPermissions() {
-        if (ContextCompat.checkSelfPermission(getActivity(),
+        if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(getActivity(),
+                ContextCompat.checkSelfPermission(this,
                         Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(getActivity(),
+            ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_EXTERNAL);
@@ -136,7 +128,7 @@ public class CameraFragment extends Fragment {
                     grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 setBehaviour();
             } else {
-                Toast.makeText(getActivity(), "You denied camera access.", Toast.LENGTH_LONG)
+                Toast.makeText(this, "You denied camera access.", Toast.LENGTH_LONG)
                         .show();
             }
         }
@@ -155,6 +147,12 @@ public class CameraFragment extends Fragment {
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image :)
+        if (targetW == 0) {
+            targetW = 1;
+        }
+        if (targetH == 0) {
+            targetH = 1;
+        }
         int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
 
         // Decode the image file into a Bitmap sized to fill the View
@@ -166,9 +164,20 @@ public class CameraFragment extends Fragment {
         mImageViewPhoto.setImageBitmap(mBitmapPhoto);
         // TODO: send image to data base
 
+        showEditImage();
+    }
+
+    private void showEditImage() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-           TransitionManager.beginDelayedTransition(mConstraintLayout);
-           mConstraintSetAlt.applyTo(mConstraintLayout);
+            TransitionManager.beginDelayedTransition(mConstraintLayout);
+            mConstraintSetAlt.applyTo(mConstraintLayout);
+        }
+    }
+
+    private void hideEditImage() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            TransitionManager.beginDelayedTransition(mConstraintLayout);
+            mConstraintSetDefault.applyTo(mConstraintLayout);
         }
     }
 
@@ -178,7 +187,7 @@ public class CameraFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (openCamera.resolveActivity(getActivity().getPackageManager()) != null) {
+                if (openCamera.resolveActivity(getPackageManager()) != null) {
                     File photoFile = null;
                     try {
                         photoFile = createTempFile();
@@ -187,7 +196,7 @@ public class CameraFragment extends Fragment {
                     }
 
                     if (photoFile != null) {
-                        Uri photoUri = FileProvider.getUriForFile(getActivity(),
+                        Uri photoUri = FileProvider.getUriForFile(CameraActivity.this,
                                 "com.androidapp.fusedbloxxer.moto4rent",
                                 photoFile);
 
@@ -203,10 +212,9 @@ public class CameraFragment extends Fragment {
                 mImageTitle = mEditText
                         .getText()
                         .toString();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    TransitionManager.beginDelayedTransition(mConstraintLayout);
-                    mConstraintSetDefault.applyTo(mConstraintLayout);
-                }
+                // TODO: send info to database and update fragments ?
+                finish();
+                hideEditImage();
             }
         };
         mButtonAccept.setOnClickListener(onClickListener);
@@ -219,7 +227,7 @@ public class CameraFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case REQUEST_IMAGE_CAPTURE: {
-                if (resultCode == getActivity().RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     setPic();
                 }
             }
@@ -230,7 +238,7 @@ public class CameraFragment extends Fragment {
     private File createTempFile() throws IOException {
         String timeStamp = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
         String fileName = mImageTitle + "_" + timeStamp + "_";
-        File fileDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File fileDir = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File imageFile = File.createTempFile(
                 fileName,
                 ".jpeg",

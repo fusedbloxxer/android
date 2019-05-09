@@ -11,7 +11,6 @@ import android.transition.TransitionManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.androidapp.fusedbloxxer.moto4rent.R;
@@ -21,7 +20,6 @@ import java.util.Date;
 
 public class FullImageActivity extends AppCompatActivity {
     public static final String TEXT_VISIBILITY = "text_view_visibility";
-    private Toolbar mToolbar;
     private TextView mTextViewDate;
     private ImageView mImageView;
     private TextView mTextViewTitle;
@@ -36,12 +34,6 @@ public class FullImageActivity extends AppCompatActivity {
 
         initView();
         setResources();
-    }
-
-    private void showToolbar() {
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -84,6 +76,11 @@ public class FullImageActivity extends AppCompatActivity {
         showToolbar();
     }
 
+    private void showToolbar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -95,7 +92,6 @@ public class FullImageActivity extends AppCompatActivity {
 
     private void initView() {
         mTextViewTitle = findViewById(R.id.text_view_title);
-        mToolbar = findViewById(R.id.toolbar_gallery);
         mImageView = findViewById(R.id.image_view_gallery_full);
         mTextViewDate = findViewById(R.id.text_view_date);
         mConstraintLayout = findViewById(R.id.constraint_layout);

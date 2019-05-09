@@ -7,7 +7,7 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -19,9 +19,15 @@
         android:theme="@style/PrimaryAppTheme.ActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".MainMenu.Gallery.FullImageActivity"
+            android:name=".MainMenu.MainFragments.Showcase.DetailsPanel.MotorcycleDetailsActivity"
             android:theme="@style/PrimaryAppTheme.NoActionBar" />
+        <activity
+            android:name=".MainMenu.Gallery.FullImageActivity"
+            android:theme="@style/PrimaryAppTheme.ActionBar" />
         <activity android:name=".Login.ForgotPasswordActivity" />
+        <activity
+            android:name=".MainMenu.Gallery.CameraActivity"
+            android:theme="@style/PrimaryAppTheme.NoActionBar" />
         <activity android:name=".Login.RegisterUserActivity" />
         <activity
             android:name=".MainMenu.NavigationDrawerActivity"
@@ -51,4 +57,5 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
+
 </manifest>

@@ -18,4 +18,5 @@
     <dimen name="text_space_16">16sp</dimen>
     <dimen name="text_space_24">24sp</dimen>
     <dimen name="space_48">48dp</dimen>
+    <dimen name="moto_display_image_height">224dp</dimen>
 </resources>

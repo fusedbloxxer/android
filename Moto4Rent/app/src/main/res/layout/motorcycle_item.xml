@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/image_view_display"
             android:layout_width="match_parent"
-            android:layout_height="224dp"
+            android:layout_height="@dimen/moto_display_image_height"
             android:scaleType="centerCrop"
             android:src="@drawable/example"
             app:layout_constraintBottom_toTopOf="@id/linear_layout"

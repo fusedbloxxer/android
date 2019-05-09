@@ -19,16 +19,14 @@ class GalleryPageAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int i) {
         if (i == 0) {
-            return new CameraFragment();
-        } else if (i == 1) {
             return new ImageFragment();
-        } else if (i == 2) {
+        } else if (i == 1) {
             ImageFragment imageFragment = new ImageFragment();
             Bundle extras = new Bundle();
             extras.putInt(OPERATION, 2);
             imageFragment.setArguments(extras);
             return imageFragment;
-        } else if (i == 3) {
+        } else if (i == 2) {
             ImageFragment imageFragment = new ImageFragment();
             Bundle extras = new Bundle();
             extras.putInt(OPERATION, 1);

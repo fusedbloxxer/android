@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidapp.fusedbloxxer.moto4rent.MainMenu.NavigationDrawerActivity;
 import com.androidapp.fusedbloxxer.moto4rent.R;
 
 /**
@@ -43,14 +42,13 @@ public class GalleryFragment extends Fragment implements GalleryListener {
     private void setAdapter() {
         mGalleryPageAdapter = new GalleryPageAdapter(
                 getChildFragmentManager(),
-                4);
+                3);
     }
 
     private void initView(View itemView) {
         mViewPager = itemView.findViewById(R.id.view_pager_gallery);
         mTabLayout = itemView.findViewById(R.id.tab_layout_gallery);
 
-        mTabLayout.addTab(mTabLayout.newTab().setIcon(R.drawable.ic_photo_camera_black_24dp));
         mTabLayout.addTab(mTabLayout.newTab().setText("Gallery"));
         mTabLayout.addTab(mTabLayout.newTab().setText("Favorite"));
         mTabLayout.addTab(mTabLayout.newTab().setText("Recent"));
@@ -61,20 +59,11 @@ public class GalleryFragment extends Fragment implements GalleryListener {
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                // TODO: !!! Lansare Camera si preluare imagine in activitate separata cand se
-                // apasa pe tabul cu Camera.
-
                 mViewPager.setCurrentItem(tab.getPosition());
-                if (tab.getPosition() == 0) {
-                    hideTabLayout();
-                }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0) {
-                    showTabLayout();
-                }
             }
 
             @Override
@@ -83,8 +72,6 @@ public class GalleryFragment extends Fragment implements GalleryListener {
             }
         });
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        // Select gallery as primary tab
-        mViewPager.setCurrentItem(1);
     }
 
     @Override

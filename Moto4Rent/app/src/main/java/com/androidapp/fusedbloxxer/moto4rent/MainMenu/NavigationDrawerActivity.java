@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +23,7 @@ import android.view.Menu;
 import android.widget.Toast;
 
 import com.androidapp.fusedbloxxer.moto4rent.MainMenu.Contact.ContactFragment;
+import com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery.CameraActivity;
 import com.androidapp.fusedbloxxer.moto4rent.MainMenu.Gallery.GalleryFragment;
 import com.androidapp.fusedbloxxer.moto4rent.MainMenu.MainFragments.HomeFragment;
 import com.androidapp.fusedbloxxer.moto4rent.Login.LoginActivity;
@@ -55,13 +57,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         // FAB action
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(NavigationDrawerActivity.this, "Hey", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
 
         // Check the home tab and display its fragment.
         if (savedInstanceState == null) {
@@ -136,16 +131,43 @@ public class NavigationDrawerActivity extends AppCompatActivity
         fragment_id = item.getItemId();
 
         if (fragment_id == R.id.nav_home) {
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(NavigationDrawerActivity.this, "Hey", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                fab.setImageDrawable(getResources()
+                                .getDrawable(R.drawable.moto4rent_fab_logo));
+            }
+
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_placeholder, new HomeFragment());
             fragmentTransaction.commit();
 
         } else if (fragment_id == R.id.nav_gallery) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent openCameraActivity = new Intent(
+                            NavigationDrawerActivity.this, CameraActivity.class);
+                    startActivity(openCameraActivity);
+                }
+            });
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                fab.setImageDrawable(getResources()
+                        .getDrawable(R.drawable.ic_add_white_24dp));
+            }
+
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             GalleryFragment galleryFragment = new GalleryFragment();
-
             fragmentTransaction.replace(R.id.fragment_placeholder, galleryFragment);
             fragmentTransaction.commit();
 
