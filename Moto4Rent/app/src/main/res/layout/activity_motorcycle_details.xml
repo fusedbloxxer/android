@@ -79,7 +79,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/terms_and_conditions_long_text" />
+                    android:text="@string/moto_description" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
