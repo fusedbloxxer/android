@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fundevelopment"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.example.fundevelopment.week_7.MaterialDesignActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.fundevelopment.week_6.LengthActivity" >
+        </activity>
+        <activity android:name="com.example.fundevelopment.week_6.SumActivity" >
+        </activity>
+        <activity
+            android:name="com.example.fundevelopment.week_6.NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.fundevelopment.week_6.FragmentInActivity" />
+        <activity android:name="com.example.fundevelopment.week_5.DebugActivity" />
+        <activity android:name="com.example.fundevelopment.week_5.ForResultActivity2" />
+        <activity android:name="com.example.fundevelopment.week_5.ForResultActivity1" />
+        <activity android:name="com.example.fundevelopment.week_5.activities.SecondActivity" />
+        <activity android:name="com.example.fundevelopment.week_5.activities.FirstActivity" />
+        <activity android:name="com.example.fundevelopment.week_5.AnimationActivity" />
+        <activity android:name="com.example.fundevelopment.week_4.ConstraintLayoutActivity" />
+        <activity android:name="com.example.fundevelopment.week_4.RecyclerViewActivity" />
+        <activity android:name="com.example.fundevelopment.week_3.LoginActivity" />
+        <activity android:name="com.example.fundevelopment.week_3.WebViewActivity" />
+        <activity android:name="com.example.fundevelopment.week_3.ViewGroupsActivity" />
+        <activity android:name="com.example.fundevelopment.Main2Activity" />
+        <activity android:name="com.example.fundevelopment.MainActivity" />
+        <activity android:name="com.example.fundevelopment.week_3.SpinnerActivity" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.example.fundevelopment.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
